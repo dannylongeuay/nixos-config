@@ -63,8 +63,6 @@
 
   programs.firefox.enable = true;
 
-  nixpkgs.config.allowUnfree = true;
-
   environment.systemPackages = with pkgs; [
     helix
   ];
