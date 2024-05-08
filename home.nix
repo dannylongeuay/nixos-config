@@ -58,6 +58,7 @@
         advice.statusHints = false;
         color.ui = true;
         init.defaultBranch = "main";
+        merge.conflictstyle = "diff3";
       };
     };
     fish = {
