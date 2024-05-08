@@ -5,22 +5,7 @@ function show_path
 end
 
 function kprof
-    if test (count $argv) -ne 1
-        echo "One argument expected, 'kprof <profile>'"
-        return
-    end
-    set match (kubectl config get-contexts -o name | grep $argv[1])
-    if test (count $match) -ne 1
-        if test (count $match) -eq 0
-            echo "No profiles matched argument."
-        else
-            echo "Multiple profiles matched argument. Try again with a more specific profile name."
-        end
-        return
-    end
-    set friendly_name (string split '/' $match)
-    export KUBE_CLUSTER_CONTEXT=$friendly_name[-1]
-    kubectl config use-context $match
+    kubectl config use-context (kubectl config get-contexts -o name | fzf)
 end
 
 function fish_title
