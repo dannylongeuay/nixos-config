@@ -22,6 +22,7 @@
           ];
       })
       rustc
+      spotify
       tldr
       xclip
     ];
