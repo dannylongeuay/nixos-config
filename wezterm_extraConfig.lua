@@ -12,7 +12,7 @@ config.default_prog = { 'fish', '-l' }
 config.use_fancy_tab_bar = false
 config.show_new_tab_button_in_tab_bar = false
 config.show_tab_index_in_tab_bar = false
-config.tab_bar_at_bottom = true
+config.tab_bar_at_bottom = false
 config.tab_max_width = 48
 
 -- The filled in variant of the < symbol
