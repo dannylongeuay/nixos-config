@@ -18,5 +18,6 @@ abbr --add --global gs git status
 abbr --add --global g git
 abbr --add --global ka kubectl get all -A
 abbr --add --global k kubectl
+abbr --add --global kde_lock "xdg-screensaver lock; sleep 5; xset dpms force off"
 abbr --add --global xc "xclip -selection clipboard"
 abbr --add --global zz "z -"
