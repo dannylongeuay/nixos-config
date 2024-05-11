@@ -1,4 +1,4 @@
-abbr --add --global hms "home-manager switch --flake ~/nixos-config/"
+abbr --add --global hms "home-manager switch --flake ~/nixos-config"
 abbr --add --global nrs "sudo nixos-rebuild switch --flake ~/nixos-config"
 
 abbr --add --global ga git add -A
