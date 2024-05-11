@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   programs.fish = {
@@ -14,7 +14,9 @@
           src = tide.src;
         }
       ];
-    interactiveShellInit = builtins.readFile ./interactiveShellInit.fish;
+    interactiveShellInit = builtins.readFile ./interactiveShellInit.fish + ''
+      export NNN_OPENER=${config.home.homeDirectory}/.config/nnn/plugins/nuke
+    '';
     shellInit = builtins.readFile ./shellInit.fish;
   };
 }
