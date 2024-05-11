@@ -14,7 +14,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "cyberdan";
+  networking.hostName = "desktop";
   networking.networkmanager.enable = true;
 
   time.timeZone = "America/Los_Angeles";

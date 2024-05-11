@@ -16,13 +16,14 @@
       lib = nixpkgs.lib;
     in
     {
-      nixosConfigurations."cyberdan" = lib.nixosSystem {
+      nixosConfigurations."desktop" = lib.nixosSystem {
         inherit system;
-        modules = [ ./configuration.nix ];
-      };
-      homeConfigurations."cyberdan" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules = [ ./home.nix ];
+        modules = [ ./nixos/home/desktop/configuration.nix ];
+      };
+      homeConfigurations."cyberdan@desktop" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [ ./hm/home/desktop/home.nix ];
       };
     };
 }
