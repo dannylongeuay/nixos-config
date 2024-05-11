@@ -13,6 +13,7 @@
     [
       cargo
       go
+      jq
       neofetch
       (pkgs.nerdfonts.override {
         fonts =
