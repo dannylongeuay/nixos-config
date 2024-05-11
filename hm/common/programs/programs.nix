@@ -5,6 +5,7 @@
     [
       ./fish/fish.nix
       ./helix.nix
+      ./nnn.nix
       ./vc.nix
       ./wezterm/wezterm.nix
     ];
@@ -28,13 +29,13 @@
       rustc
       spotify
       tldr
-      xclip
+      unzip
+      wl-clipboard
     ];
 
   programs = {
     home-manager.enable = true;
     fzf.enable = true;
     zoxide.enable = true;
-    nnn.enable = true;
   };
 }
