@@ -123,6 +123,9 @@
         }
       ];
     };
+    nnn = {
+      enable = true;
+    };
     wezterm = {
       enable = true;
       extraConfig = builtins.readFile ./wezterm_extraConfig.lua;
