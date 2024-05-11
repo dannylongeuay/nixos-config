@@ -1,3 +1,3 @@
 # NixOS Configuration
 
-NixOS configurations for home and work
+Modular home and work profiles
