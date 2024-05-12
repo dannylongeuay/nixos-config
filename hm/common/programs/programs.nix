@@ -15,6 +15,11 @@
       cargo
       go
       jq
+      hyprlock
+      hyprshot
+      hyprpaper
+      hyprcursor
+      rofi-wayland
       neofetch
       (pkgs.nerdfonts.override {
         fonts =
