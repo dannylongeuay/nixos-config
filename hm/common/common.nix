@@ -19,8 +19,11 @@
         layout = "dwindle";
       };
       windowrule = [
-        "tile, firefox"
+        "tile,^(firefox)"
       ];
+      cursor = {
+        no_hardware_cursors = true;
+      };
       bind =
         [
           "$mod, T, exec, kitty"

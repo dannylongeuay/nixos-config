@@ -30,13 +30,13 @@
     # xwayland.enable = true;
   };
 
-  services.xserver = {
-    enable = true;
+  services = {
     displayManager.sddm.enable = true;
-    desktopManager.plasma5.enable = true;
     libinput.enable = true;
-    layout = "us";
-    xkbVariant = "";
+    xserver = {
+      enable = true;
+      desktopManager.plasma5.enable = true;
+    };
   };
 
   services.printing.enable = true;

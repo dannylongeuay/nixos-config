@@ -42,6 +42,8 @@
       settings = {
         shell = "fish";
       };
+      theme = "Catppuccin-Mocha";
+      font.name = "JetBrainsMono Nerd Font Mono";
     };
   };
 }
