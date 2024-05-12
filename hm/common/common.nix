@@ -19,7 +19,6 @@
         "XDG_SESSION_TYPE,wayland"
         "WLR_NO_HARDWARE_CURSORS,1"
       ];
-      monitor = ",3440x1440@120,auto,1";
       general = {
         layout = "dwindle";
       };
