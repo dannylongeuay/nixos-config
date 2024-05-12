@@ -9,6 +9,7 @@
     NNN_OPENER = "${config.home.homeDirectory}/.config/nnn/plugins/nuke";
   };
 
+  programs.wlogout.enable = true;
   wayland.windowManager.hyprland = {
     enable = true;
 
@@ -29,6 +30,7 @@
         [
           "$mod, T, exec, kitty"
           "$mod, F, exec, firefox"
+          "$mod, S, exec, spotify"
           "$mod, Q, killactive,"
 
           "$mod SHIFT, Q, exit,"
