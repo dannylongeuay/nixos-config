@@ -14,6 +14,11 @@
 
     settings = {
       "$mod" = "SUPER";
+      env = [
+        "LIBVA_DRIVER_NAME,nvidia"
+        "XDG_SESSION_TYPE,wayland"
+        "WLR_NO_HARDWARE_CURSORS,1"
+      ];
       monitor = ",3440x1440@120,auto,1";
       general = {
         layout = "dwindle";
@@ -21,9 +26,6 @@
       windowrule = [
         "tile,^(firefox)"
       ];
-      cursor = {
-        no_hardware_cursors = true;
-      };
       bind =
         [
           "$mod, T, exec, kitty"
