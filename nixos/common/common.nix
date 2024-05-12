@@ -25,16 +25,19 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  services.xserver.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+  programs.hyprland = {
+    enable = true;
+    # xwayland.enable = true;
+  };
 
   services.xserver = {
+    enable = true;
+    displayManager.sddm.enable = true;
+    desktopManager.plasma5.enable = true;
+    libinput.enable = true;
     layout = "us";
     xkbVariant = "";
   };
-
-  services.xserver.libinput.enable = true;
 
   services.printing.enable = true;
 

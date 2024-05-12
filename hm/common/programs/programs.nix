@@ -37,5 +37,11 @@
     home-manager.enable = true;
     fzf.enable = true;
     zoxide.enable = true;
+    kitty = {
+      enable = true;
+      settings = {
+        shell = "fish";
+      };
+    };
   };
 }

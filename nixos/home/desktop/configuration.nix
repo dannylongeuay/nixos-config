@@ -6,4 +6,6 @@
     ];
 
   networking.hostName = "desktop";
+
+  services.xserver.videoDrivers = [ "nvidia" ];
 }
