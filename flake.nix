@@ -19,11 +19,11 @@
       nixosConfigurations."desktop" = lib.nixosSystem {
         inherit system;
         inherit pkgs;
-        modules = [ ./nixos/home/desktop/configuration.nix ];
+        modules = [ ./profiles/cyberdan/desktop/configuration.nix ];
       };
       homeConfigurations."cyberdan@desktop" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules = [ ./hm/home/desktop/home.nix ];
+        modules = [ ./profiles/cyberdan/desktop/home.nix ];
       };
     };
 }

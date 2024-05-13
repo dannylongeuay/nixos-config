@@ -3,9 +3,9 @@
   home.homeDirectory = "/home/cyberdan";
   home.stateVersion = "23.11";
 
-  wayland.windowManager.hyprland.settings.monitor = ",3440x1440@120,auto,1";
+  # wayland.windowManager.hyprland.settings.monitor = ",3440x1440@120,auto,1";
 
   imports = [
-    ../../common/common.nix
+    ../../../home/common/entry.nix
   ];
 }

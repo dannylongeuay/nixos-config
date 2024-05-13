@@ -27,7 +27,6 @@
         nixpkgs-fmt
         rust-analyzer-unwrapped
         vscode-langservers-extracted
-        xclip
       ];
     languages.language = [
       {

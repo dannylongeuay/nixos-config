@@ -30,6 +30,14 @@
     # xwayland.enable = true;
   };
 
+  programs.nh = {
+    enable = true;
+    # clean = {
+    #   enable = true;
+    #   extraArgs = "--keep-since 7d --keep 10";
+    # };
+  };
+
   services = {
     displayManager.sddm.enable = true;
     libinput.enable = true;

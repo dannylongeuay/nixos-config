@@ -1,6 +1,10 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
+  home.sessionVariables = {
+    NNN_OPENER = "${config.home.homeDirectory}/.config/nnn/plugins/nuke";
+  };
+
   programs.nnn = {
     enable = true;
     plugins = {

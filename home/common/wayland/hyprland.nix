@@ -1,25 +1,10 @@
-{ config, ... }:
-
 {
-  imports = [
-    ./programs/programs.nix
-  ];
-
-  home.sessionVariables = {
-    NNN_OPENER = "${config.home.homeDirectory}/.config/nnn/plugins/nuke";
-  };
-
-  programs = {
-    wlogout.enable = true;
-    waybar = {
-      enable = true;
-    };
-  };
   wayland.windowManager.hyprland = {
     enable = true;
 
     settings = {
       "$mod" = "SUPER";
+      monitor = ",highrr,auto,1";
       env = [
         "LIBVA_DRIVER_NAME,nvidia"
         "XDG_SESSION_TYPE,wayland"
