@@ -25,6 +25,7 @@
     extraPackages = with pkgs;
       [
         atool
+        exiftool
         fzf
         glow
         mediainfo

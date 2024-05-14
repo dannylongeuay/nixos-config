@@ -32,12 +32,12 @@
           "$mod, F, exec, firefox"
           "$mod, S, exec, spotify"
           "$mod, SPACE, exec, tofi-drun | xargs hyprctl dispatch exec --"
-          "$mod, RETURN, exec, tofi-run | xargs hyprctl dispatch exec --"
+          "$mod CTRL, SPACE, exec, tofi-run | xargs hyprctl dispatch exec --"
           "$mod, Q, killactive,"
 
-          # "$mod SHIFT, Q, exit,"
           "$mod CTRL, Q, exec, wlogout"
-          "$mod, ESCAPE, exec, hyprlock"
+          "$mod, ESCAPE, exec, sleep 1 && hyprctl dispatch dpms off && hyprlock"
+          ", PRINT, exec, hyprshot -m region"
 
           "$mod, h, movefocus, l"
           "$mod, j, movefocus, d"
@@ -58,7 +58,7 @@
       bindl =
         [
           "$mod CTRL, ESCAPE, exec, sleep 1 && hyprctl dispatch dpms off"
-          "$mod CTRL, RETURN, exec, sleep 1 && hyprctl dispatch dpms on"
+          "$mod, RETURN, exec, sleep 1 && hyprctl dispatch dpms on"
           ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ];
       bindel =
