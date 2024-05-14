@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -33,7 +35,9 @@
           "$mod, RETURN, exec, tofi-run | xargs hyprctl dispatch exec --"
           "$mod, Q, killactive,"
 
-          "$mod SHIFT, Q, exit,"
+          # "$mod SHIFT, Q, exit,"
+          "$mod CTRL, Q, exec, wlogout"
+          "$mod, ESCAPE, exec, hyprlock"
 
           "$mod, h, movefocus, l"
           "$mod, j, movefocus, d"
@@ -50,6 +54,11 @@
           "$mod, 3, workspace, 3"
           "$mod, 4, workspace, 4"
           "$mod, 5, workspace, 5"
+        ];
+      bindl =
+        [
+          "$mod CTRL, ESCAPE, exec, sleep 1 && hyprctl dispatch dpms off"
+          "$mod CTRL, RETURN, exec, sleep 1 && hyprctl dispatch dpms on"
         ];
     };
   };

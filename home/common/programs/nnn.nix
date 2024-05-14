@@ -5,6 +5,8 @@
     NNN_OPENER = "${config.home.homeDirectory}/.config/nnn/plugins/nuke";
   };
 
+  programs.fish.shellAbbrs.nnn = "nnn -c";
+
   programs.nnn = {
     enable = true;
     plugins = {
