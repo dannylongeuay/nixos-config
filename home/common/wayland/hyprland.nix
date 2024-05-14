@@ -52,11 +52,11 @@
           "$mod, 3, workspace, 3"
           "$mod, 4, workspace, 4"
           "$mod, 5, workspace, 5"
+          "$mod, RETURN, togglespecialworkspace"
         ];
       bindl =
         [
-          "$mod CTRL, ESCAPE, exec, sleep 1 && hyprctl dispatch dpms off"
-          "$mod, RETURN, exec, sleep 1 && hyprctl dispatch dpms on"
+          "$mod, BACKSPACE, exec, sleep 1 && hyprctl dispatch dpms on"
           ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
           ", XF86AudioPrev, exec, playerctl -p spotify previous"
           ", XF86AudioPlay, exec, playerctl -p spotify play-pause"
