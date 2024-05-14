@@ -6,6 +6,7 @@
       jq
       libnotify
       neofetch
+      playerctl
       spotify
       tldr
       unzip

@@ -1,5 +1,3 @@
-{ pkgs, ... }:
-
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -60,6 +58,9 @@
           "$mod CTRL, ESCAPE, exec, sleep 1 && hyprctl dispatch dpms off"
           "$mod, RETURN, exec, sleep 1 && hyprctl dispatch dpms on"
           ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+          ", XF86AudioPrev, exec, playerctl -p spotify previous"
+          ", XF86AudioPlay, exec, playerctl -p spotify play-pause"
+          ", XF86AudioNext, exec, playerctl -p spotify next"
         ];
       bindel =
         [
