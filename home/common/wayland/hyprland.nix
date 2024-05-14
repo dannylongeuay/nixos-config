@@ -59,6 +59,12 @@
         [
           "$mod CTRL, ESCAPE, exec, sleep 1 && hyprctl dispatch dpms off"
           "$mod CTRL, RETURN, exec, sleep 1 && hyprctl dispatch dpms on"
+          ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ];
+      bindel =
+        [
+          ", XF86AudioRaiseVolume, exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SINK@ 5%+"
+          ", XF86AudioLowerVolume, exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SINK@ 5%-"
         ];
     };
   };
