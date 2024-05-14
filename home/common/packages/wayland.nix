@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs;
     [
+      dunst
       hyprlock
       hyprshot
       hyprpaper

@@ -32,10 +32,10 @@
 
   programs.nh = {
     enable = true;
-    # clean = {
-    #   enable = true;
-    #   extraArgs = "--keep-since 7d --keep 10";
-    # };
+    clean = {
+      enable = true;
+      extraArgs = "--keep-since 7d --keep 10";
+    };
   };
 
   services = {
@@ -60,9 +60,13 @@
   };
 
   environment.systemPackages = with pkgs; [
-    vim
     helix
+    vim
   ];
+
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+  };
 
   users.users.cyberdan = {
     isNormalUser = true;

@@ -11,5 +11,7 @@
 
     zoxide.enable = true;
     fish.shellAbbrs.zz = "z -";
+
+    tofi.enable = true;
   };
 }

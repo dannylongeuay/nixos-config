@@ -5,6 +5,10 @@
     settings = {
       "$mod" = "SUPER";
       monitor = ",highrr,auto,1";
+      exec-once = [
+        "waybar"
+        "dunst"
+      ];
       env = [
         "LIBVA_DRIVER_NAME,nvidia"
         "XDG_SESSION_TYPE,wayland"
@@ -21,6 +25,8 @@
           "$mod, T, exec, kitty"
           "$mod, F, exec, firefox"
           "$mod, S, exec, spotify"
+          "$mod, SPACE, exec, tofi-drun | xargs hyprctl dispatch exec --"
+          "$mod, RETURN, exec, tofi-run | xargs hyprctl dispatch exec --"
           "$mod, Q, killactive,"
 
           "$mod SHIFT, Q, exit,"
