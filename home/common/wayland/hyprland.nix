@@ -9,6 +9,10 @@
         "waybar"
         "dunst"
       ];
+      input = {
+        sensitivity = -0.2;
+        accel_profile = "flat";
+      };
       env = [
         "LIBVA_DRIVER_NAME,nvidia"
         "XDG_SESSION_TYPE,wayland"
