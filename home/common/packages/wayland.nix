@@ -5,7 +5,6 @@
     [
       dunst
       hyprshot
-      hyprpaper
       hyprcursor
       wl-clipboard
     ];
