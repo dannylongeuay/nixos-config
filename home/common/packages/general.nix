@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs;
     [
+      firefox
       jq
       libnotify
       neofetch
