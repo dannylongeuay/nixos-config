@@ -8,6 +8,7 @@
       ./kitty.nix
       ./nnn.nix
       ./vc.nix
-      ./wezterm/entry.nix
+      ./waybar.nix
+      ./wlogout.nix
     ];
 }
