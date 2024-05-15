@@ -9,7 +9,6 @@
       ./programs/entry.nix
       ./security.nix
       ./services/entry.nix
-      ./sound.nix
       ./system.nix
       ./time.nix
       ./users.nix
