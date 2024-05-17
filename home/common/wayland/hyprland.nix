@@ -12,6 +12,7 @@
       input = {
         sensitivity = -0.2;
         accel_profile = "flat";
+        kb_options = "caps:escape";
       };
       env = [
         "LIBVA_DRIVER_NAME,nvidia"

@@ -6,9 +6,9 @@
       ./il8n.nix
       ./networking.nix
       ./nix.nix
-      ./programs/entry.nix
+      ./programs
       ./security.nix
-      ./services/entry.nix
+      ./services
       ./system.nix
       ./time.nix
       ./users.nix
