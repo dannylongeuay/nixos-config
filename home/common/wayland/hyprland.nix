@@ -38,6 +38,8 @@
           "$mod, ESCAPE, exec, sleep 1 && hyprctl dispatch dpms off && hyprlock"
           ", PRINT, exec, hyprshot -m region"
 
+          "$mod, m, togglefloating,"
+
           "$mod, h, movefocus, l"
           "$mod, j, movefocus, d"
           "$mod, k, movefocus, u"
@@ -67,6 +69,18 @@
         [
           ", XF86AudioRaiseVolume, exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SINK@ 5%+"
           ", XF86AudioLowerVolume, exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SINK@ 5%-"
+        ];
+      binde =
+        [
+          "$mod ALT, h, resizeactive, -10 0"
+          "$mod ALT, j, resizeactive, 0 10"
+          "$mod ALT, k, resizeactive, 0 -10"
+          "$mod ALT, l, resizeactive, 10 0"
+        ];
+      bindm =
+        [
+          "$mod,mouse:272,movewindow"
+          "$mod,mouse:273,resizewindow"
         ];
     };
   };
