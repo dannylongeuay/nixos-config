@@ -29,7 +29,7 @@
           echo $title
         '';
       };
-      fish_greeting = "neofetch";
+      fish_greeting = "fastfetch";
       kprof = "kubectl config use-context (kubectl config get-contexts -o name | fzf)";
       show_path = {
         body = ''

@@ -4,7 +4,7 @@
   home.packages = with pkgs;
     [
       jq
-      neofetch
+      fastfetch
       tldr
       unzip
     ];
