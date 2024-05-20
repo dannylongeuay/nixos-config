@@ -1,0 +1,7 @@
+{
+  imports =
+    [
+      ./editor
+      ./nnn.nix
+    ];
+}

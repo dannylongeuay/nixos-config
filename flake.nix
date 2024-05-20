@@ -16,7 +16,6 @@
       lib = nixpkgs.lib;
       host_info_home_desktop = {
         name = "desktop";
-        video_drivers = [ "nvidia" ];
       };
       user_info_home = rec {
         name = "cyberdan";
@@ -32,14 +31,14 @@
           host_info = host_info_home_desktop;
           user_info = user_info_home;
         };
-        modules = [ ./profiles/cyberdan/desktop/configuration.nix ];
+        modules = [ ./modules/nixos/hosts/desktop ];
       };
       homeConfigurations."${user_info_home.name}@${host_info_home_desktop.name}" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {
           user_info = user_info_home;
         };
-        modules = [ ./profiles/cyberdan/desktop/home.nix ];
+        modules = [ ./modules/home-manager/user/cyberdan ];
       };
     };
 }
