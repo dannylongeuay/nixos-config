@@ -17,6 +17,7 @@
     shellAbbrs = {
       nhs = "nh home switch --ask .";
       nos = "nh os switch --ask .";
+      ls = "eza";
       k = "kubectl";
       xc = "xclip -selection clipboard";
     };
