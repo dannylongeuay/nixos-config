@@ -25,5 +25,14 @@
         inherit pkgs;
         modules = [ ./modules/home-manager/user/cyberdan ];
       };
+      nixosConfigurations.laptop = lib.nixosSystem {
+        inherit system;
+        inherit pkgs;
+        modules = [ ./modules/nixos/hosts/laptop ];
+      };
+      homeConfigurations."cyberdan@laptop" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [ ./modules/home-manager/user/cyberdan ];
+      };
     };
 }

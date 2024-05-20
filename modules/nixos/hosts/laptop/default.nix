@@ -1,5 +1,5 @@
 {
-  networking.hostName = "desktop";
+  networking.hostName = "laptop";
 
   users.users.cyberdan = {
     isNormalUser = true;
