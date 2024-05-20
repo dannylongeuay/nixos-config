@@ -18,14 +18,11 @@
     };
     extraPackages = with pkgs;
       [
-        gopls
-        gotools
         ltex-ls
         lua-language-server
         marksman
         nil
         nixpkgs-fmt
-        rust-analyzer-unwrapped
         vscode-langservers-extracted
       ];
     languages.language = [
