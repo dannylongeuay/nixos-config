@@ -1,4 +1,6 @@
 {
+  networking.hostName = "desktop";
+
   imports =
     [
       ./hardware-configuration.nix

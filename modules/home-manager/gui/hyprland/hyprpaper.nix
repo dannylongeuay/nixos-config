@@ -1,7 +1,5 @@
-{ user_info, ... }:
-
 let
-  wallpaper_path = "${user_info.home_dir}/Pictures/wallpaper/current.png";
+  wallpaper_path = ../../../../assets/nixos-wallpaper-catppuccin-mocha.png;
 in
 {
   services.hyprpaper = {
@@ -11,7 +9,7 @@ in
       splash = false;
       preload =
         [
-          wallpaper_path
+          "${wallpaper_path}"
         ];
       wallpaper =
         [

@@ -1,9 +1,7 @@
-{ user_info, ... }:
-
 {
-  users.users."${user_info.name}" = {
+  users.users.cyberdan = {
     isNormalUser = true;
-    description = "${user_info.description}";
+    description = "Daniel Longeuay";
     extraGroups = [ "networkmanager" "wheel" ];
   };
 }

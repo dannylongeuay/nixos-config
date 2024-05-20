@@ -14,30 +14,15 @@
       system = "x86_64-linux";
       pkgs = import nixpkgs { system = system; config.allowUnfree = true; };
       lib = nixpkgs.lib;
-      host_info_home_desktop = {
-        name = "desktop";
-      };
-      user_info_home = rec {
-        name = "cyberdan";
-        description = "Daniel Longeuay";
-        home_dir = "/home/${name}";
-      };
     in
     {
-      nixosConfigurations."${host_info_home_desktop.name}" = lib.nixosSystem {
+      nixosConfigurations.desktop = lib.nixosSystem {
         inherit system;
         inherit pkgs;
-        specialArgs = {
-          host_info = host_info_home_desktop;
-          user_info = user_info_home;
-        };
         modules = [ ./modules/nixos/hosts/desktop ];
       };
-      homeConfigurations."${user_info_home.name}@${host_info_home_desktop.name}" = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations."cyberdan@desktop" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = {
-          user_info = user_info_home;
-        };
         modules = [ ./modules/home-manager/user/cyberdan ];
       };
     };
