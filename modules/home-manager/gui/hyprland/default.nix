@@ -6,6 +6,7 @@
       ./hyprpaper.nix
       ./packages.nix
       ./programs.nix
+      ./services.nix
       ./waybar.nix
       ./wlogout.nix
     ];

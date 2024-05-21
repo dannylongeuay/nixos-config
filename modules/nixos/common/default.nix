@@ -2,6 +2,7 @@
   imports =
     [
       ./boot.nix
+      ./console.nix
       ./environment.nix
       ./il8n.nix
       ./networking.nix

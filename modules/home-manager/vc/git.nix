@@ -58,6 +58,7 @@
       userEmail = "dannylongeuay@yahoo.com";
       delta = {
         enable = true;
+        # catppuccin.enable = true;
         options = {
           navigate = true;
           line-numbers = true;

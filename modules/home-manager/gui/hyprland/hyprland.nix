@@ -1,13 +1,13 @@
 {
   wayland.windowManager.hyprland = {
     enable = true;
+    catppuccin.enable = true;
 
     settings = {
       "$mod" = "SUPER";
       monitor = ",highrr,auto,1";
       exec-once = [
         "waybar"
-        "dunst"
       ];
       input = {
         sensitivity = -0.2;
@@ -37,6 +37,8 @@
           "$mod CTRL, Q, exec, wlogout --buttons-per-row 2 --column-spacing 125 --row-spacing 25 --show-binds"
           "$mod, ESCAPE, exec, sleep 1 && hyprctl dispatch dpms off && hyprlock"
           ", PRINT, exec, hyprshot -m region"
+
+          "$mod SHIFT, W, exec, pkill waybar; waybar"
 
           "$mod, m, togglefloating,"
 

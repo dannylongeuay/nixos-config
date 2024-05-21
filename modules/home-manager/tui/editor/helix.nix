@@ -3,13 +3,11 @@
 {
   programs.helix = {
     enable = true;
+    catppuccin.enable = true;
     defaultEditor = true;
     settings = {
-      theme = "catppuccin_mocha";
       editor = {
         mouse = false;
-        true-color = true;
-        color-modes = true;
         cursor-shape = {
           insert = "bar";
           select = "underline";

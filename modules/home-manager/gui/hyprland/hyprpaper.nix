@@ -1,5 +1,10 @@
+{ pkgs, ... }:
+
 let
-  wallpaper_path = ../../../../assets/nixos-wallpaper-catppuccin-mocha.png;
+  wallpaper = pkgs.fetchurl {
+    url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/master/wallpapers/nixos-wallpaper-catppuccin-mocha.png";
+    sha256 = "sha256-fmKFYw2gYAYFjOv4lr8IkXPtZfE1+88yKQ4vjEcax1s=";
+  };
 in
 {
   services.hyprpaper = {
@@ -9,11 +14,11 @@ in
       splash = false;
       preload =
         [
-          "${wallpaper_path}"
+          "${wallpaper}"
         ];
       wallpaper =
         [
-          ",${wallpaper_path}"
+          ",${wallpaper}"
         ];
     };
   };
