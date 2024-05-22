@@ -1,5 +1,8 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
+let
+  palette = (lib.importJSON "${config.catppuccin.sources.palette}/palette.json").${config.catppuccin.flavour}.colors;
+in
 {
   programs.wlogout = {
     enable = true;
@@ -38,15 +41,15 @@
       }
 
       window {
-      	background-color: rgba(12, 12, 12, 0.9);
+      	background-color: transparent;
       }
 
       button {
-        border-radius: 0;
-        border-color: black;
-      	text-decoration-color: #FFFFFF;
-        color: #FFFFFF;
-      	background-color: #1E1E1E;
+        border-radius: 1em;
+        border-color: ${palette.mantle.hex};
+      	text-decoration-color: ${palette.text.hex};
+        color: ${palette.text.hex};
+      	background-color: ${palette.crust.hex};
       	border-style: solid;
       	border-width: 1px;
       	background-repeat: no-repeat;
@@ -55,24 +58,24 @@
       }
 
       button:active, button:hover {
-      	background-color: #3700B3;
+      	background-color: ${palette.overlay1.hex};
       	outline-style: none;
       }
 
       #lock {
-          background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/lock.png"));
+        background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/lock.png"));
       }
 
       #logout {
-          background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/logout.png"));
+        background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/logout.png"));
       }
 
       #shutdown {
-          background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/shutdown.png"));
+        background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/shutdown.png"));
       }
 
       #reboot {
-          background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/reboot.png"));
+        background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/reboot.png"));
       }
     '';
   };

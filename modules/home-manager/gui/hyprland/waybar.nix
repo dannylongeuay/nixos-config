@@ -1,3 +1,9 @@
+{ config, lib, ... }:
+
+let
+  palette = (lib.importJSON "${config.catppuccin.sources.palette}/palette.json").${config.catppuccin.flavour}.colors;
+  coloredIcon = icon: color: "<span color='${palette.${color}.hex}'>${icon}</span>";
+in
 {
   programs.waybar = {
     enable = true;
@@ -5,90 +11,123 @@
     settings = {
       primary = {
         position = "top";
-        modules-left = [ "hyprland/workspaces" "hyprland/window" ];
-        modules-center = [ ];
-        modules-right = [ "battery" "clock" ];
+        modules-left = [ "hyprland/window" ];
+        modules-center = [ "hyprland/workspaces" ];
+        modules-right = [ "network" "pulseaudio" "temperature" "cpu" "memory" "battery" "clock" ];
         "hyprland/workspaces" = {
-          "format" = "{icon}";
-          "on-click" = "activate";
-          "format-icons" = {
-            "1" = " ";
-            "2" = " ";
-            "3" = "";
-            "4" = "";
-            "5" = "";
-            "urgent" = "";
-            "active" = "";
-            "default" = "";
-          };
-          "sort-by-number" = true;
+          on-click = "activate";
         };
-        # "hyprland/workspaces" = {
-        #   format = "<sub>{icon}</sub>{windows}";
-        #   window-rewrite-default = "";
-        #   window-rewrite = {
-        #     "title<.*youtube.*>" = "";
-        #     "class<firefox>" = "";
-        #     "class<kitty>" = "";
-        #     "class<spotify>" = "";
-        #   };
-        # };
         "hyprland/window" = {
-          format = "{class}{title}";
+          format = "${coloredIcon "" "overlay1"} {class} {title}";
           rewrite = {
-            "firefox(.*) — Mozilla Firefox" = "🌎 $1";
-            "kitty(.*)" = "> [$1]";
+            ".*firefox (.*) — Mozilla Firefox" = "${coloredIcon "" "flamingo"} $1";
+            ".*kitty (.*)" = "${coloredIcon "" "rosewater"} [$1]";
           };
           separate-outputs = true;
         };
+        pulseaudio = {
+          format = "${coloredIcon "{icon}" "rosewater"} {volume:3}%";
+          format-muted = "${coloredIcon "" "red"} {volume:3}%";
+          format-icons = {
+            default = [ "" "" ];
+          };
+          scroll-step = 5;
+          on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+        };
+        network = {
+          format = "${coloredIcon "󰛴" "blue"} {bandwidthDownBytes:<1} ${coloredIcon "󰛶" "sky"} {bandwidthUpBytes:<1}";
+          tooltip-format = "{ifname} via {gwaddr}";
+          interval = 5;
+          max-length = 50;
+        };
+        temperature = {
+          format = "${coloredIcon "" "green"} {temperatureC:2}°C";
+          critical-threshold = 80;
+          format-critical = "${coloredIcon "" "red"} {temperatureC:2}°C";
+          tooltip-format = "{temperatureF:3}°F";
+          interval = 5;
+        };
+        cpu = {
+          format = "${coloredIcon "" "yellow"} {usage:2}%";
+          interval = 5;
+        };
+        memory = {
+          format = "${coloredIcon "" "teal"} {percentage:2}%";
+          tooltip-format = "Memory: {used:0.1f}G/{total:0.1f}G\nSwap: {swapUsed:0.1f}G/{swapTotal:0.1f}G";
+          interval = 5;
+        };
         battery = {
-          format = "{capacity}% {icon}";
+          format = "${coloredIcon "{icon}" "green"} {capacity:3}%";
           format-icons = [ "" "" "" "" "" ];
         };
         clock = {
-          format-alt = "{:%a, %d. %b  %H:%M}";
+          format = "${coloredIcon "" "lavender"} {:%R (%Z)}";
+          format-alt = "${coloredIcon "" "lavender"} {:%A %F %R (%Z)}";
+          tooltip-format = "{tz_list}";
+          timezones =
+            [
+              "America/Los_Angeles"
+              "America/Chicago"
+              "America/New_York"
+              "Etc/UTC"
+              "Asia/Tokyo"
+            ];
         };
       };
     };
     style = ''
       * {
-        font-family: JetBrainsMono Nerd Font Mono;
-        font-size: 16pt;
+        border: none;
+        border-radius: 0;
+        min-height: 0;
+        margin: 0;
         padding: 0;
-        margin: 0 0.5em;
+        box-shadow: none;
+        text-shadow: none;
+        icon-shadow: none;
       }
 
-      window#waybar {
-        padding: 0;
-        border-radius: 0;
-        background-color: @base;
-        /* background-color: shade(@base, 0.2); */
-        /* border: 2px solid alpha(@crust, 0.3); */
+      #waybar {
+        background-color: transparent;
+        color: @text;
+        font-family: JetBrainsMono Nerd Font Mono;
+        font-size: 16pt;
+      }
+
+      #window,
+      #workspaces,
+      #pulseaudio,
+      #network,
+      #temperature,
+      #cpu,
+      #memory,
+      #battery,
+      #clock 
+      {
+        margin: 0 0.1em;
+        padding: 0.25em 0.5em;
+        background-color: @crust;
+        border-width: .25em;
+        border-style: outset;
+        border-color: @surface0;
+        border-radius: 1em;
       }
 
       #workspaces button {
-        padding: 0 0.5em;
-        background-color: @surface0;
-        color: @text;
-        margin: 0.25em;
+        padding: 0 0.25em;
+        margin: 0 0.25em;
+        border-radius: 0.5em;
+        color: @overlay1;
       }
-
-      #workspaces button.empty {
-        color: @overlay0;
-      }
-
-      #workspaces button.visible {
-        color: @blue;
-      }
-
+     
       #workspaces button.active {
-        color: @green
+        background-color: @mauve;
+        color: @surface0
       }
 
-      #workspaces button.urgent {
-        background-color: @red;
-        border-radius: 1em;
-        color: @text;
+      #workspaces button:hover {
+        background-color: @flamingo;
+        color: @surface2;
       }
     '';
   };
