@@ -30,7 +30,7 @@
         inherit pkgs;
         modules =
           [
-            ./modules/home-manager/user/cyberdan
+            ./modules/home-manager/user/cyberdan/desktop.nix
             catppuccin.homeManagerModules.catppuccin
           ];
       };
@@ -47,7 +47,7 @@
         inherit pkgs;
         modules =
           [
-            ./modules/home-manager/user/cyberdan
+            ./modules/home-manager/user/cyberdan/laptop.nix
             catppuccin.homeManagerModules.catppuccin
           ];
       };
