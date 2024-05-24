@@ -8,6 +8,5 @@
       ./programs.nix
       ./services.nix
       ./waybar.nix
-      ./wlogout.nix
     ];
 }
