@@ -13,6 +13,7 @@
         sensitivity = -0.2;
         accel_profile = "flat";
         kb_options = "caps:escape";
+        follow_mouse = 2;
       };
       env = [
         "LIBVA_DRIVER_NAME,nvidia"
