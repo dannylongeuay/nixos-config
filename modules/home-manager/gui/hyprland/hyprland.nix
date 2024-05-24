@@ -35,7 +35,7 @@
           "$mod CTRL, SPACE, exec, tofi-run | xargs hyprctl dispatch exec --"
           "$mod, Q, killactive,"
 
-          "$mod CTRL, Q, exec, wlogout --buttons-per-row 2 --column-spacing 125 --row-spacing 25 --show-binds"
+          "$mod CTRL, Q, exec, hyprctl dispatch exit"
           "$mod, ESCAPE, exec, sleep 1 && hyprctl dispatch dpms off && hyprlock"
           ", PRINT, exec, hyprshot -m region"
 
