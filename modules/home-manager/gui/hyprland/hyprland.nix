@@ -9,8 +9,8 @@
       exec-once =
         [
           "waybar"
-          "[workspace 1 silent] spotify"
           "[workspace 1 silent] firefox"
+          "[workspace 1 silent] sleep 1 && spotify"
           "[workspace 2 silent] kitty"
         ];
       general = {
