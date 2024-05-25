@@ -6,9 +6,13 @@
     settings = {
       "$mod" = "SUPER";
       monitor = ",highrr,auto,1";
-      exec-once = [
-        "waybar"
-      ];
+      exec-once =
+        [
+          "waybar"
+          "[workspace 1 silent] spotify"
+          "[workspace 1 silent] firefox"
+          "[workspace 2 silent] kitty"
+        ];
       general = {
         border_size = 3;
         gaps_in = 5;
