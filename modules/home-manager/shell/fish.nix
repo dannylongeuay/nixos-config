@@ -40,5 +40,8 @@
         '';
       };
     };
+    interactiveShellInit = ''
+      set -U tide_jobs_number_threshold 2
+    '';
   };
 }
