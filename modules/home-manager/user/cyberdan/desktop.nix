@@ -1,5 +1,11 @@
 {
   waybar_font_size = "16";
+  hyprland_startup_apps =
+    [
+      "[workspace 1 silent] firefox"
+      "[workspace 1 silent] sleep 1 && spotify"
+      "[workspace 2 silent] kitty"
+    ];
 
   imports =
     [
