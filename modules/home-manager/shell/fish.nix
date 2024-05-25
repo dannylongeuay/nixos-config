@@ -1,5 +1,9 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
+let
+  palette = (lib.importJSON "${config.catppuccin.sources.palette}/palette.json").${config.catppuccin.flavour}.colors;
+  fishColor = color: lib.removePrefix "#" "${palette.${color}.hex}";
+in
 {
   programs.fish = {
     enable = true;
@@ -41,6 +45,9 @@
       };
     };
     interactiveShellInit = ''
+      set -U tide_pwd_color_dirs ${fishColor "blue"}
+      set -U tide_character_color ${fishColor "green"}
+      set -U tide_character_failure ${fishColor "red"}
       set -U tide_jobs_number_threshold 2
     '';
   };
