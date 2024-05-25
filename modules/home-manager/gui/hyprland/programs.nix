@@ -3,7 +3,6 @@
 {
   programs.tofi = {
     enable = true;
-    catppuccin.enable = true;
     settings = {
       font = "JetBrainsMono Nerd Font Mono";
       border-width = 0;

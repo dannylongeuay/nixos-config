@@ -2,7 +2,6 @@
   programs = {
     kitty = {
       enable = true;
-      catppuccin.enable = true;
       settings = {
         shell = "fish";
         enable_audio_bell = false;

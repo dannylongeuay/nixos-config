@@ -2,6 +2,7 @@
 
 {
   catppuccin = {
+    enable = true;
     flavour = "mocha";
     accent = "mauve";
   };
@@ -30,7 +31,12 @@
 
   gtk = {
     enable = true;
-    catppuccin.enable = true;
+    catppuccin = {
+      enable = true;
+      gnomeShellTheme = false;
+      cursor.enable = false;
+      icon.enable = false;
+    };
   };
 
   xdg.enable = true;

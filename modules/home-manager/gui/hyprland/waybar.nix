@@ -8,7 +8,6 @@ in
   config = {
     programs.waybar = {
       enable = true;
-      catppuccin.enable = true;
       settings = {
         primary = {
           position = "top";
