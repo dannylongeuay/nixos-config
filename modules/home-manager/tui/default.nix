@@ -2,6 +2,7 @@
   imports =
     [
       ./editor
-      ./nnn.nix
+      ./programs.nix
+      ./yazi.nix
     ];
 }
