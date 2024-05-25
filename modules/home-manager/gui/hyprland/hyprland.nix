@@ -16,16 +16,35 @@
         "col.active_border" = "$accent";
         "col.inactive_border" = "$surface0";
       };
+      dwindle =
+        {
+          force_split = 2;
+        };
       decoration = {
         rounding = 10;
+        active_opacity = 0.95;
         inactive_opacity = 0.9;
         blur = {
           enabled = false;
         };
       };
+      bezier =
+        [
+          "easeInOutCirc,0.85,0,0.15,1"
+          "easeInOutQuart,0.75,0,0.25,1"
+          "easeInOutBack,0.65,-0.5,0.35,1.5"
+          "easeOutExpo,0.15,1,0.3,1"
+        ];
+      animation =
+        [
+          "windowsIn,1,10,easeInOutQuart,popin"
+          "windowsMove,1,10,easeInOutBack,slide"
+          "specialWorkspace,1,5,easeInOutCirc,slidevert"
+        ];
       misc = {
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
+        background_color = "$base";
       };
       input = {
         sensitivity = -0.2;
@@ -57,6 +76,7 @@
           "$mod SHIFT, W, exec, pkill waybar; waybar"
 
           "$mod, m, togglefloating,"
+          "$mod, TAB, fullscreen, 0"
 
           "$mod, h, movefocus, l"
           "$mod, j, movefocus, d"
