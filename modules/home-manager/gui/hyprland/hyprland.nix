@@ -9,6 +9,24 @@
       exec-once = [
         "waybar"
       ];
+      general = {
+        border_size = 3;
+        gaps_in = 5;
+        gaps_out = 10;
+        "col.active_border" = "$accent";
+        "col.inactive_border" = "$surface0";
+      };
+      decoration = {
+        rounding = 10;
+        inactive_opacity = 0.9;
+        blur = {
+          enabled = false;
+        };
+      };
+      misc = {
+        disable_hyprland_logo = true;
+        disable_splash_rendering = true;
+      };
       input = {
         sensitivity = -0.2;
         accel_profile = "flat";
@@ -20,9 +38,6 @@
         "XDG_SESSION_TYPE,wayland"
         "WLR_NO_HARDWARE_CURSORS,1"
       ];
-      general = {
-        layout = "dwindle";
-      };
       windowrule = [
         "tile,^(firefox)"
       ];
