@@ -3,6 +3,8 @@
 {
   home.packages = with pkgs;
     [
+      asciinema
+      asciiquarium
       bc
       dua
       eza
