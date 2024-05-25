@@ -7,6 +7,11 @@
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
+  hardware.logitech.wireless = {
+    enable = true;
+    enableGraphical = true;
+  };
+
   imports =
     [
       ./hardware-configuration.nix

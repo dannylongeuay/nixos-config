@@ -20,6 +20,7 @@ in
             "cpu"
             "memory"
             "battery"
+            "custom/mouse-charge"
             "network"
             "clock"
           ];
@@ -83,6 +84,12 @@ SSID: {essid:10} | STRENGTH: {signalStrength}% | FREQ: {frequency}'';
             format = "${coloredIcon "{icon}" "green"} {capacity:3}%";
             format-icons = [ "" "" "" "" "" ];
           };
+          "custom/mouse-charge" = {
+            format = "${coloredIcon "" "overlay2"} {:3}";
+            exec = ''solaar show "G Pro Wireless" 2>/dev/null | rg Battery | awk '{print $2}' | head -n 1'';
+            interval = 60;
+            tooltip = false;
+          };
           clock = {
             format = "${coloredIcon "" "lavender"} {:%R (%Z)}";
             format-alt = "${coloredIcon "" "lavender"} {:%A %F %R (%Z)}";
@@ -145,6 +152,7 @@ SSID: {essid:10} | STRENGTH: {signalStrength}% | FREQ: {frequency}'';
         #cpu,
         #memory,
         #battery,
+        #custom-mouse-charge,
         #network,
         #clock
         {
