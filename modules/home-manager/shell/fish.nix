@@ -24,7 +24,6 @@ in
       k = "kubectl";
       nhs = "nh home switch --ask .";
       nos = "nh os switch --ask .";
-      xc = "xclip -selection clipboard";
     };
     functions = {
       fish_title = {

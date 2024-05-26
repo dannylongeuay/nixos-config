@@ -14,12 +14,12 @@ in
           modules-left = [ "hyprland/window" ];
           modules-center = [ "hyprland/workspaces" ];
           modules-right = [
+            "custom/mouse-charge"
             "pulseaudio"
             "temperature"
             "cpu"
             "memory"
             "battery"
-            "custom/mouse-charge"
             "network"
             "clock"
           ];
@@ -102,26 +102,6 @@ SSID: {essid:10} | STRENGTH: {signalStrength}% | FREQ: {frequency}'';
                 "Asia/Tokyo"
               ];
           };
-          # "custom/lock" = {
-          #   format = "󰍁";
-          #   tooltip = false;
-          #   on-click = "sleep 1 && hyprctl dispatch dpms off && hyprlock";
-          # };
-          # "custom/logout" = {
-          #   format = "󰗼";
-          #   tooltip = false;
-          #   on-click = "hyprctl dispatch exit";
-          # };
-          # "custom/reboot" = {
-          #   format = "󰜉";
-          #   tooltip = false;
-          #   on-click = "systemctl reboot";
-          # };
-          # "custom/power" = {
-          #   format = "";
-          #   tooltip = false;
-          #   on-click = "systemctl poweroff";
-          # };
         };
       };
       style = ''
