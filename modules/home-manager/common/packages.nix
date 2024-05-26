@@ -13,6 +13,7 @@
       jq
       fastfetch
       ncdu
+      nix-your-shell
       ripgrep
       tldr
       unzip

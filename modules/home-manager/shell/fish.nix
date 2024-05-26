@@ -136,6 +136,8 @@ in
       set -U tide_zig_color ${fishColor "peach"}
 
       set -U tide_jobs_number_threshold 2
+
+      nix-your-shell fish | source
     '';
   };
 }
