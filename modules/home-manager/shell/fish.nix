@@ -19,10 +19,11 @@ in
         }
       ];
     shellAbbrs = {
-      nhs = "nh home switch --ask .";
-      nos = "nh os switch --ask .";
+      grep = "rg";
       ls = "eza";
       k = "kubectl";
+      nhs = "nh home switch --ask .";
+      nos = "nh os switch --ask .";
       xc = "xclip -selection clipboard";
     };
     functions = {

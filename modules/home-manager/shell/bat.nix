@@ -1,6 +1,6 @@
 {
   programs = {
     bat.enable = true;
-    fzf.enable = true;
+    fish.shellAbbrs.cat = "bat -p";
   };
 }

@@ -6,7 +6,6 @@
       asciinema
       asciiquarium
       bc
-      dua
       eza
       fd
       httpie

@@ -1,8 +1,9 @@
 {
   imports =
     [
+      ./bat.nix
       ./fish.nix
-      ./programs.nix
+      ./fzf.nix
       ./zoxide.nix
     ];
 }
