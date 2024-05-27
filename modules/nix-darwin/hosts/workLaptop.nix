@@ -12,7 +12,11 @@
 
   system.stateVersion = 4;
 
-  environment.systemPackges = with pkgs;
+  nixpkgs.hostPlatform = "aarch64-darwin";
+
+  programs.zsh.enable = true;
+
+  environment.systemPackages = with pkgs;
     [
       helix
       vim

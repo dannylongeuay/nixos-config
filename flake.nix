@@ -60,8 +60,8 @@
       darwinConfigurations.workLaptop = nix-darwin.lib.darwinSystem {
         modules = [ ./modules/nix-darwin/hosts/workLaptop.nix ];
       };
-      homeConfigurations."daniel.longeuay" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs { system = nix-darwin.lib.darwinSystem; config.allowUnfree = true; };
+      homeConfigurations.workUser = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs { system = "aarch64-darwin"; config.allowUnfree = true; };
         modules =
           [
             ./modules/home-manager/user/daniel.longeuay/workLaptop.nix
