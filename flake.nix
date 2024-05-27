@@ -7,10 +7,14 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     catppuccin.url = "github:catppuccin/nix";
   };
 
-  outputs = { nixpkgs, home-manager, catppuccin, ... }:
+  outputs = { nixpkgs, home-manager, nix-darwin, catppuccin, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { system = system; config.allowUnfree = true; };
@@ -34,6 +38,7 @@
             catppuccin.homeManagerModules.catppuccin
           ];
       };
+
       nixosConfigurations.laptop = lib.nixosSystem {
         inherit system;
         inherit pkgs;
@@ -48,6 +53,18 @@
         modules =
           [
             ./modules/home-manager/user/cyberdan/laptop.nix
+            catppuccin.homeManagerModules.catppuccin
+          ];
+      };
+
+      darwinConfigurations.workLaptop = nix-darwin.lib.darwinSystem {
+        modules = [ ./modules/nix-darwin/hosts/workLaptop.nix ];
+      };
+      homeConfigurations."daniel.longeuay" = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs { system = nix-darwin.lib.darwinSystem; config.allowUnfree = true; };
+        modules =
+          [
+            ./modules/home-manager/user/daniel.longeuay/workLaptop.nix
             catppuccin.homeManagerModules.catppuccin
           ];
       };

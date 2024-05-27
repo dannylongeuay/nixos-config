@@ -18,13 +18,6 @@ in
           src = tide.src;
         }
       ];
-    shellAbbrs = {
-      grep = "rg";
-      ls = "eza";
-      k = "kubectl";
-      nhs = "nh home switch --ask .";
-      nos = "nh os switch --ask .";
-    };
     functions = {
       fish_title = {
         body = ''

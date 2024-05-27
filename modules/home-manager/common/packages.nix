@@ -5,11 +5,14 @@
     [
       asciinema
       asciiquarium
+      awscli2
       bc
+      doctl
       eza
       fd
       httpie
       jq
+      kubectl
       fastfetch
       ncdu
       nix-your-shell
@@ -17,4 +20,12 @@
       tldr
       unzip
     ];
+
+  programs.fish = {
+    shellAbbrs = {
+      grep = "rg";
+      ls = "eza";
+      k = "kubectl";
+    };
+  };
 }
