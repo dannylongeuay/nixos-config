@@ -8,9 +8,11 @@
       ./networking.nix
       ./nh.nix
       ./nix.nix
+      ./programs.nix
       ./services.nix
       ./system.nix
       ./time.nix
+      ./user.nix
       ./xserver.nix
     ];
 }

@@ -1,6 +1,7 @@
 {
   programs.fish = {
     shellAbbrs = {
+      hms = "home-manager switch --flake .#workUser";
       nhs = "nh home switch --ask --configuration workUser .";
       drs = "darwin-rebuild switch --flake .#workLaptop";
     };

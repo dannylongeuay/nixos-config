@@ -1,7 +1,9 @@
 {
   programs.fish = {
     shellAbbrs = {
+      hms = "home-manager switch --flake .#cyberdan@desktop";
       nhs = "nh home switch --ask --configuration cyberdan@desktop .";
+      nrs = "sudo nixos-rebuild switch --flake .#desktop";
       nos = "nh os switch --ask --hostname desktop .";
     };
   };
