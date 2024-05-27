@@ -5,6 +5,10 @@ let
   fishColor = color: lib.removePrefix "#" "${palette.${color}.hex}";
 in
 {
+  programs.zsh = {
+    enable = true;
+    initExtraFirst = "exec ${pkgs.fish}/bin/fish";
+  };
   programs.fish = {
     enable = true;
     plugins = with pkgs.fishPlugins;

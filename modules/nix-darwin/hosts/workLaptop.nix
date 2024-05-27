@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   services.nix-daemon.enable = true;
 
@@ -5,10 +7,15 @@
 
   nixpkgs.hostPlatform = "aarch64-darwin";
 
+  environment.packages = with pkgs;
+    [
+      nh
+    ];
+
   imports =
     [
-      ../../../nixos/common/environment.nix
-      ../../../nixos/common/nix.nix
-      ../../../nixos/common/programs.nix
+      ../../nixos/common/environment.nix
+      ../../nixos/common/nix.nix
+      ../../nixos/common/programs.nix
     ];
 }
