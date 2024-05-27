@@ -7,7 +7,7 @@
 
   nixpkgs.hostPlatform = "aarch64-darwin";
 
-  environment.packages = with pkgs;
+  environment.systemPackages = with pkgs;
     [
       nh
     ];
