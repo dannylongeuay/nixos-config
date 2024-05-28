@@ -1,9 +1,11 @@
+{ pkgs, ... }:
+
 {
   programs.fish = {
     shellAbbrs = {
       hms = "home-manager switch --flake .#workUser";
       nhs = "nh home switch --ask --configuration workUser .";
-      drs = "sudo darwin-rebuild switch --flake .#workLaptop";
+      drs = "darwin-rebuild switch --flake .#workLaptop";
     };
   };
 
@@ -11,9 +13,15 @@
   home.homeDirectory = "/Users/daniel.longeuay";
   home.stateVersion = "23.11";
 
+  home.packages = with pkgs;
+    [
+      aws-nuke
+    ];
+
   imports =
     [
       ../../common
+      ../../gui/terminal/kitty.nix
       ../../shell
       ../../tui
       ../../vc

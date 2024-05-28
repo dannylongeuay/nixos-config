@@ -12,6 +12,39 @@
       nh
     ];
 
+  homebrew = {
+    enable = true;
+    casks =
+      [
+        "amethyst"
+        "doll"
+        "hammerspoon"
+        "raycast"
+        "stats"
+        "wezterm"
+      ];
+    onActivation = {
+      autoUpdate = true;
+      cleanup = "uninstall";
+      upgrade = true;
+    };
+  };
+
+  system.defaults = {
+    dock = {
+      autohide = true;
+      orientation = "left";
+      # show-process-indicators = false;
+      show-recents = false;
+      static-only = true;
+    };
+    finder = {
+      AppleShowAllExtensions = true;
+      ShowPathbar = true;
+      FXEnableExtensionChangeWarning = false;
+    };
+  };
+
   imports =
     [
       ../../nixos/common/environment.nix
