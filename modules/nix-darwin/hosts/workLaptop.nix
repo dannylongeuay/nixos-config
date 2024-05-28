@@ -16,9 +16,7 @@
     enable = true;
     casks =
       [
-        "amethyst"
         "doll"
-        "hammerspoon"
         "raycast"
         "stats"
         "wezterm"

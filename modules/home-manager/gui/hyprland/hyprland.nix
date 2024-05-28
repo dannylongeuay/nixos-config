@@ -67,7 +67,7 @@
         bind =
           [
             "$mod, T, exec, kitty"
-            "$mod, F, exec, firefox"
+            "$mod, B, exec, firefox"
             "$mod, S, exec, spotify"
             "$mod, SPACE, exec, tofi-drun | xargs hyprctl dispatch exec --"
             "$mod CTRL, SPACE, exec, tofi-run | xargs hyprctl dispatch exec --"
