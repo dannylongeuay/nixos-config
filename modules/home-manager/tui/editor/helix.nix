@@ -15,12 +15,18 @@
     };
     extraPackages = with pkgs;
       [
+        cuelsp
+        dockerfile-language-server-nodejs
         ltex-ls
         lua-language-server
         marksman
         nil
         nixpkgs-fmt
+        nodePackages.bash-language-server
+        taplo
+        terraform-ls
         vscode-langservers-extracted
+        yaml-language-server
       ];
     languages.language = [
       {
