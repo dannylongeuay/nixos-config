@@ -55,6 +55,8 @@
           accel_profile = "flat";
           kb_options = "caps:escape";
           follow_mouse = 2;
+          repeat_rate = 32;
+          repeat_delay = 200;
         };
         env = [
           "LIBVA_DRIVER_NAME,nvidia"
