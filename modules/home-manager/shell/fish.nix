@@ -32,6 +32,7 @@ in
         '';
       };
       fish_greeting = "fastfetch";
+      aprof = "export AWS_PROFILE=(aws configure list-profiles | fzf)";
       kprof = "kubectl config use-context (kubectl config get-contexts -o name | fzf)";
       show_path = {
         body = ''
