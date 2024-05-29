@@ -31,8 +31,9 @@
   system = {
     defaults = {
       NSGlobalDomain = {
-        KeyRepeat = 1;
-        InitialKeyRepeat = 10;
+        ApplePressAndHoldEnabled = false;
+        KeyRepeat = 2;
+        InitialKeyRepeat = 15;
       };
       dock = {
         autohide = true;
