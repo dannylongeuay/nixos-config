@@ -28,18 +28,27 @@
     };
   };
 
-  system.defaults = {
-    dock = {
-      autohide = true;
-      orientation = "left";
-      # show-process-indicators = false;
-      show-recents = false;
-      static-only = true;
+  system = {
+    defaults = {
+      NSGlobalDomain = {
+        KeyRepeat = 1;
+        InitialKeyRepeat = 10;
+      };
+      dock = {
+        autohide = true;
+        orientation = "left";
+        show-recents = false;
+        static-only = true;
+      };
+      finder = {
+        AppleShowAllExtensions = true;
+        ShowPathbar = true;
+        FXEnableExtensionChangeWarning = false;
+      };
     };
-    finder = {
-      AppleShowAllExtensions = true;
-      ShowPathbar = true;
-      FXEnableExtensionChangeWarning = false;
+    keyboard = {
+      enableKeyMapping = true;
+      remapCapsLockToEscape = true;
     };
   };
 
