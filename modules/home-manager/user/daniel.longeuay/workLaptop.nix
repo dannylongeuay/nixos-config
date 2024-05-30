@@ -30,9 +30,10 @@
       };
     };
     kitty.settings = {
+      copy_on_select = "clipboard";
+      hide_window_decorations = "titlebar-only";
       macos_option_as_alt = "yes";
       macos_show_window_title_in = "menubar";
-      hide_window_decorations = "titlebar-only";
       window_margin_width = 5;
     };
   };
@@ -40,6 +41,7 @@
   home.packages = with pkgs;
     [
       aws-nuke
+      glab
       skhd
       yabai
     ];
