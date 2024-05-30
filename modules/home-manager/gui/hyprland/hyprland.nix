@@ -69,7 +69,7 @@
         bind =
           [
             "$mod, T, exec, kitty"
-            "$mod, B, exec, firefox"
+            "$mod CTRL, B, exec, firefox"
             "$mod, S, exec, spotify"
             "$mod, SPACE, exec, tofi-drun | xargs hyprctl dispatch exec --"
             "$mod CTRL, SPACE, exec, tofi-run | xargs hyprctl dispatch exec --"
@@ -81,18 +81,18 @@
 
             "$mod SHIFT, W, exec, pkill waybar; waybar"
 
-            "$mod, m, togglefloating,"
-            "$mod, TAB, fullscreen, 0"
+            "$mod CTRL, F, togglefloating,"
+            "$mod SHIFT, F, fullscreen, 0"
 
-            "$mod, h, movefocus, l"
-            "$mod, j, movefocus, d"
-            "$mod, k, movefocus, u"
-            "$mod, l, movefocus, r"
+            "$mod, H, movefocus, l"
+            "$mod, J, movefocus, d"
+            "$mod, K, movefocus, u"
+            "$mod, L, movefocus, r"
 
-            "$mod CTRL, h, swapwindow, l"
-            "$mod CTRL, j, swapwindow, d"
-            "$mod CTRL, k, swapwindow, u"
-            "$mod CTRL, l, swapwindow, r"
+            "$mod CTRL, H, swapwindow, l"
+            "$mod CTRL, J, swapwindow, d"
+            "$mod CTRL, K, swapwindow, u"
+            "$mod CTRL, L, swapwindow, r"
 
             "$mod, 1, workspace, 1"
             "$mod, 2, workspace, 2"
