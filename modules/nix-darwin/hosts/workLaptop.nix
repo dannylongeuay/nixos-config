@@ -19,7 +19,6 @@
         "doll"
         "raycast"
         "stats"
-        "wezterm"
       ];
     onActivation = {
       autoUpdate = true;

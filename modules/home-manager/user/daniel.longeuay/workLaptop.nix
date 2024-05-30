@@ -30,6 +30,7 @@
       };
     };
     kitty.settings = {
+      macos_option_as_alt = "yes";
       macos_show_window_title_in = "menubar";
       hide_window_decorations = "titlebar-only";
       window_margin_width = 5;
