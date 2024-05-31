@@ -7,6 +7,7 @@
     settings = {
       editor = {
         mouse = false;
+        line-number = "relative";
         cursor-shape = {
           insert = "bar";
           select = "underline";
