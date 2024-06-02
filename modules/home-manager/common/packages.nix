@@ -12,6 +12,7 @@
       fd
       httpie
       jq
+      just
       kubectl
       fastfetch
       ncdu
