@@ -24,9 +24,10 @@
 
   programs.fish = {
     shellAbbrs = {
+      c = "clear";
       grep = "rg";
-      ls = "eza";
       ll = "eza -la";
+      ls = "eza";
       k = "kubectl";
     };
   };
