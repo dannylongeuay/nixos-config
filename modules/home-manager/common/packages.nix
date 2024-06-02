@@ -26,6 +26,7 @@
     shellAbbrs = {
       grep = "rg";
       ls = "eza";
+      ll = "eza -la";
       k = "kubectl";
     };
   };

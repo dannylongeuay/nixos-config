@@ -1,6 +1,12 @@
 {
   programs = {
     zoxide.enable = true;
-    fish.shellAbbrs.zz = "z -";
+    fish = {
+      shellAbbrs = {
+        zz = "z -";
+        "..." = "../..";
+        "...." = "../../..";
+      };
+    };
   };
 }
