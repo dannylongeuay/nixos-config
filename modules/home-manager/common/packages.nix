@@ -26,7 +26,7 @@
     shellAbbrs = {
       c = "clear";
       # break muscle memory
-      clear = "clear foo";
+      clear = "# stop typing 'clear', use 'c' instead!";
       grep = "rg";
       ll = "eza -la";
       ls = "eza";
