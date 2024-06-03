@@ -25,6 +25,8 @@
   programs.fish = {
     shellAbbrs = {
       c = "clear";
+      # break muscle memory
+      clear = "clear foo";
       grep = "rg";
       ll = "eza -la";
       ls = "eza";
