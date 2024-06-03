@@ -7,6 +7,11 @@
 
   nixpkgs.hostPlatform = "aarch64-darwin";
 
+  nix.gc.interval = {
+    Hour = 3;
+    Minute = 0;
+  };
+
   environment.systemPackages = with pkgs;
     [
       nh

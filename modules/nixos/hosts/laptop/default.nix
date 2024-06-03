@@ -7,6 +7,8 @@
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
+  nix.gc.dates = "20:00";
+
   imports =
     [
       ./hardware-configuration.nix

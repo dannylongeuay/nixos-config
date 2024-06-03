@@ -12,6 +12,8 @@
     enableGraphical = true;
   };
 
+  nix.gc.dates = "03:00";
+
   imports =
     [
       ./hardware-configuration.nix
