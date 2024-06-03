@@ -21,6 +21,7 @@
         ltex-ls
         lua-language-server
         marksman
+        mdformat
         nil
         nixpkgs-fmt
         nodePackages.bash-language-server
@@ -29,21 +30,44 @@
         vscode-langservers-extracted
         yaml-language-server
       ];
-    languages.language = [
-      {
-        name = "nix";
-        formatter.command = "nixpkgs-fmt";
-        auto-format = true;
-      }
-      {
-        name = "go";
-        formatter.command = "goimports";
-        auto-format = true;
-      }
-      {
-        name = "markdown";
-        language-servers = [ "marksman" "ltex-ls" ];
-      }
-    ];
+    languages = {
+      language = [
+        {
+          name = "nix";
+          formatter.command = "nixpkgs-fmt";
+          auto-format = true;
+        }
+        {
+          name = "go";
+          formatter.command = "goimports";
+          auto-format = true;
+        }
+        {
+          name = "markdown";
+          language-servers = [ "marksman" "ltex-ls" ];
+          formatter = {
+            command = "mdformat";
+            args = [ "-" ];
+          };
+          auto-format = true;
+        }
+        {
+          name = "python";
+          language-servers = [ "pyright" "ruff" ];
+          auto-format = true;
+        }
+      ];
+      language-server = {
+        pyright.config.python.analysis = {
+          typeCheckingMode = "basic";
+        };
+        ruff = {
+          command = "ruff-lsp";
+          config.settings = {
+            args = [ "--ignore" "E501" ];
+          };
+        };
+      };
+    };
   };
 }
