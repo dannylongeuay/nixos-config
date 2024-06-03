@@ -24,6 +24,7 @@
         "doll"
         "raycast"
         "stats"
+        "ubersicht"
       ];
     onActivation = {
       autoUpdate = true;
@@ -35,6 +36,7 @@
   system = {
     defaults = {
       NSGlobalDomain = {
+        _HIHideMenuBar = true;
         ApplePressAndHoldEnabled = false;
         KeyRepeat = 2;
         InitialKeyRepeat = 15;
