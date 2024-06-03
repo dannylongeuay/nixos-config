@@ -20,6 +20,7 @@
       ripgrep
       tldr
       unzip
+      watchexec
     ];
 
   programs.fish = {
@@ -31,6 +32,7 @@
       ll = "eza -la";
       ls = "eza";
       k = "kubectl";
+      we = "watchexec";
     };
   };
 }
