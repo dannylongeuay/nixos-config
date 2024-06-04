@@ -17,6 +17,7 @@ in
             "custom/mouse-charge"
             "pulseaudio"
             "temperature"
+            "disk"
             "cpu"
             "memory"
             "battery"
@@ -65,6 +66,10 @@ SSID: {essid:10} | STRENGTH: {signalStrength}% | FREQ: {frequency}'';
             format-critical = "${coloredIcon "" "red"} {temperatureC:2}°C";
             tooltip-format = "{temperatureF:3}°F";
             interval = 5;
+          };
+          disk = {
+            format = "${coloredIcon "" "peach"} {percentage_used:2}%";
+            interval = 60;
           };
           # load = {
           #   format = "${coloredIcon "" "yellow"} {load1:4}%";
@@ -127,6 +132,7 @@ SSID: {essid:10} | STRENGTH: {signalStrength}% | FREQ: {frequency}'';
         #workspaces,
         #pulseaudio,
         #temperature,
+        #disk,
         #load,
         #cpu,
         #memory,
