@@ -26,6 +26,7 @@
         nixpkgs-fmt
         nodePackages.bash-language-server
         taplo
+        terraform
         terraform-ls
         vscode-langservers-extracted
         yaml-language-server
