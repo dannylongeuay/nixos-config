@@ -57,6 +57,18 @@
           language-servers = [ "pyright" "ruff" ];
           auto-format = true;
         }
+        {
+          name = "ocaml";
+          formatter = {
+            command = "ocamlformat";
+            args = [
+              "-"
+              "--impl"
+              "--enable-outside-detected-project"
+            ];
+          };
+          auto-format = true;
+        }
       ];
       language-server = {
         pyright.config.python.analysis = {
