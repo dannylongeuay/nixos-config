@@ -64,7 +64,7 @@
             args = [
               "-"
               "--impl"
-              "--enable-outside-detected-project"
+              # "--enable-outside-detected-project"
             ];
           };
           auto-format = true;
