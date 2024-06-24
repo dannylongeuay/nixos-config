@@ -43,6 +43,7 @@
       aws-nuke
       glab
       skhd
+      sops
       yabai
     ];
 
