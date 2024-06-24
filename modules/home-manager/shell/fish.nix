@@ -24,7 +24,7 @@ in
       ];
     functions = {
       fish_title = {
-        body = ''
+        body = /* fish */ ''
           set -l title
           set -q argv[1]; or set argv fish
           set title (basename (prompt_pwd)) \| $argv
@@ -35,14 +35,14 @@ in
       aprof = "export AWS_PROFILE=(aws configure list-profiles | fzf)";
       kprof = "kubectl config use-context (kubectl config get-contexts -o name | fzf)";
       show_path = {
-        body = ''
+        body = /* fish */ ''
           for item in $PATH
               echo $item
           end
         '';
       };
     };
-    interactiveShellInit = ''
+    interactiveShellInit = /* fish */ ''
       set -U tide_aws_bg_color ${fishColor "base"}
       set -U tide_aws_color ${fishColor "peach"}
       set -U tide_character_color ${fishColor "green"}

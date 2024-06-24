@@ -22,7 +22,7 @@
         g = "git";
       };
       functions = {
-        _gcm = ''
+        _gcm = /* fish */ ''
           argparse h/help b/breaking -- $argv
           set -l breaking ""
           set -l cmd
@@ -39,13 +39,13 @@
           end
           eval $cmd
         '';
-        gfeat = ''_gcm feat ":sparkles:" $argv'';
-        gfix = ''_gcm fix ":bug:" $argv'';
-        gperf = ''_gcm perf ":zap:" $argv'';
-        gchore = ''_gcm chore ":wrench:" $argv'';
-        grefactor = ''_gcm refactor ":recycle:" $argv'';
-        gstyle = ''_gcm style ":art:" $argv'';
-        gdocs = ''_gcm docs ":pencil:" $argv'';
+        gfeat = /* fish */ ''_gcm feat ":sparkles:" $argv'';
+        gfix = /* fish */ ''_gcm fix ":bug:" $argv'';
+        gperf = /* fish */ ''_gcm perf ":zap:" $argv'';
+        gchore = /* fish */''_gcm chore ":wrench:" $argv'';
+        grefactor = /* fish */ ''_gcm refactor ":recycle:" $argv'';
+        gstyle = /* fish */ ''_gcm style ":art:" $argv'';
+        gdocs = /* fish */ ''_gcm docs ":pencil:" $argv'';
       };
     };
     gh = {
