@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 let
-  palette = (lib.importJSON "${config.catppuccin.sources.palette}/palette.json").${config.catppuccin.flavour}.colors;
+  palette = (lib.importJSON "${config.catppuccin.sources.palette}/palette.json").${config.catppuccin.flavor}.colors;
   coloredIcon = icon: color: "<span color='${palette.${color}.hex}'>${icon}</span>";
 in
 {

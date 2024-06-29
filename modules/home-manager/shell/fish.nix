@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  palette = (lib.importJSON "${config.catppuccin.sources.palette}/palette.json").${config.catppuccin.flavour}.colors;
+  palette = (lib.importJSON "${config.catppuccin.sources.palette}/palette.json").${config.catppuccin.flavor}.colors;
   fishColor = color: lib.removePrefix "#" "${palette.${color}.hex}";
 in
 {
