@@ -61,7 +61,6 @@
         env = [
           "LIBVA_DRIVER_NAME,nvidia"
           "XDG_SESSION_TYPE,wayland"
-          "WLR_NO_HARDWARE_CURSORS,1"
         ];
         windowrule = [
           "tile,^(firefox)"

@@ -1,10 +1,15 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   catppuccin = {
     enable = true;
     flavor = "mocha";
     accent = "mauve";
+    pointerCursor = {
+      enable = true;
+      accent = "dark";
+      flavor = config.catppuccin.flavor;
+    };
   };
 
   home.packages =
