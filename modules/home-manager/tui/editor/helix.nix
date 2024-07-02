@@ -69,6 +69,16 @@
           };
           auto-format = true;
         }
+        {
+          name = "haskell";
+          # formatter = {
+          #   command = "ormolu";
+          #   args = [
+          #     "--no-cabal"
+          #   ];
+          # };
+          auto-format = true;
+        }
       ];
       language-server = {
         pyright.config.python.analysis = {
