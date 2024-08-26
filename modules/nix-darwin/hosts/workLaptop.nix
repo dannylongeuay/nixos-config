@@ -21,10 +21,10 @@
     enable = true;
     casks =
       [
+        "nikitabobko/tap/aerospace"
         "doll"
         "raycast"
         "stats"
-        "ubersicht"
       ];
     onActivation = {
       autoUpdate = true;
@@ -36,7 +36,7 @@
   system = {
     defaults = {
       NSGlobalDomain = {
-        _HIHideMenuBar = true;
+        _HIHideMenuBar = false;
         ApplePressAndHoldEnabled = false;
         KeyRepeat = 2;
         InitialKeyRepeat = 15;

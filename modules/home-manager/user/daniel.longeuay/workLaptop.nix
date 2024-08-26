@@ -5,6 +5,8 @@
   home.homeDirectory = "/Users/daniel.longeuay";
   home.stateVersion = "23.11";
 
+  home.file.".config/aerospace/aerospace.toml".source = ./aerospace.toml;
+
   programs = {
     fish = {
       shellAbbrs = {
@@ -42,9 +44,7 @@
     [
       aws-nuke
       glab
-      skhd
       sops
-      yabai
     ];
 
   imports =
