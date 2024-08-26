@@ -51,7 +51,7 @@
           background_color = "$base";
         };
         input = {
-          sensitivity = -0.2;
+          sensitivity = -0.5;
           accel_profile = "flat";
           kb_options = "caps:escape";
           follow_mouse = 2;
