@@ -26,8 +26,8 @@
           };
         decoration = {
           rounding = 10;
-          active_opacity = 0.95;
-          inactive_opacity = 0.9;
+          active_opacity = 1.0;
+          inactive_opacity = 1.0;
           blur = {
             enabled = false;
           };
@@ -67,8 +67,9 @@
           "GBM_BACKEND,nvidia-drm"
           "__GLX_VENDOR_LIBRARY_NAME,nvidia"
         ];
-        windowrule = [
-          "tile,^(firefox)"
+        windowrulev2 = [
+          "tile, class:(firefox)"
+          "opacity 0.95 override 0.85 override, class:(kitty)"
         ];
         bind =
           [
