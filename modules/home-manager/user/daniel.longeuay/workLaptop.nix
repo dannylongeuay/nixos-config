@@ -6,6 +6,9 @@
   home.stateVersion = "23.11";
 
   home.file.".config/aerospace/aerospace.toml".source = ./aerospace.toml;
+  home.sessionPath = [
+    "$HOME/.local/bin"
+  ];
 
   programs = {
     fish = {
