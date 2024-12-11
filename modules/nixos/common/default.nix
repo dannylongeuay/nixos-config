@@ -5,6 +5,7 @@
       ./console.nix
       ./environment.nix
       ./il8n.nix
+      ./fonts.nix
       ./networking.nix
       ./nh.nix
       ./nix.nix
