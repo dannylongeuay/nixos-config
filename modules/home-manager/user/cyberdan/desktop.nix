@@ -12,8 +12,9 @@
   hyprland_startup_apps =
     [
       "[workspace 1 silent] firefox"
-      "[workspace 1 silent] sleep 1 && spotify"
+      "[workspace 1 silent] sleep 1 && kitty"
       "[workspace 2 silent] kitty"
+      "[workspace 3 silent] spotify"
     ];
 
   imports =
