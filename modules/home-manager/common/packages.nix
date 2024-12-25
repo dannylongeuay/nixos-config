@@ -18,7 +18,6 @@
       ncdu
       nix-your-shell
       ripgrep
-      tldr
       unzip
       watchexec
     ];
