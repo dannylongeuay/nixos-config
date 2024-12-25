@@ -34,6 +34,7 @@ in
       fish_greeting = "fastfetch";
       aprof = "export AWS_PROFILE=(aws configure list-profiles | fzf)";
       kprof = "kubectl config use-context (kubectl config get-contexts -o name | fzf)";
+      cht = "http -b cht.sh/(http -b cht.sh/:list | fzf)";
       show_path = {
         body = /* fish */ ''
           for item in $PATH
