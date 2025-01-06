@@ -62,6 +62,7 @@
   imports =
     [
       ../../nixos/common/environment.nix
+      ../../nixos/common/fonts.nix
       ../../nixos/common/nix.nix
       ../../nixos/common/programs.nix
     ];
