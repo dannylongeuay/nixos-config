@@ -1,4 +1,5 @@
 {
+  catppuccin.delta.enable = false;
   programs = {
     fish = {
       shellAbbrs = {
@@ -58,7 +59,6 @@
       userEmail = "dannylongeuay@yahoo.com";
       delta = {
         enable = true;
-        catppuccin.enable = false;
         options = {
           navigate = true;
           line-numbers = true;

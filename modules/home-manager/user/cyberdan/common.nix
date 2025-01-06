@@ -2,7 +2,7 @@
 
 {
   catppuccin = {
-    pointerCursor = {
+    cursors = {
       enable = true;
       accent = "dark";
       flavor = config.catppuccin.flavor;
