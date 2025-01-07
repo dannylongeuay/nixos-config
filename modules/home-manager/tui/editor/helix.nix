@@ -12,12 +12,14 @@
           insert = "bar";
           select = "underline";
         };
+        inline-diagnostics.cursor-line = "hint";
       };
     };
     extraPackages = with pkgs;
       [
         cuelsp
         dockerfile-language-server-nodejs
+        jq-lsp
         ltex-ls
         lua-language-server
         marksman
