@@ -6,7 +6,6 @@
       asciinema
       asciiquarium
       awscli2
-      bc
       doctl
       eza
       fd
@@ -14,6 +13,7 @@
       jq
       just
       kubectl
+      libqalculate
       fastfetch
       ncdu
       nix-your-shell
