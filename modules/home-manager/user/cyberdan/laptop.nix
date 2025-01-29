@@ -8,6 +8,7 @@
     };
   };
 
+  hyprland_monitor = ",preferred,auto,1.25";
   hyprland_startup_apps =
     [
       "[workspace 1 silent] firefox"

@@ -7,7 +7,7 @@
 
       settings = {
         "$mod" = "SUPER";
-        monitor = ",highrr,auto,1";
+        monitor = config.hyprland_monitor;
         exec-once =
           [
             "waybar"
@@ -145,6 +145,10 @@
     hyprland_startup_apps = lib.mkOption {
       type = lib.types.listOf lib.types.str;
       default = [ ];
+    };
+    hyprland_monitor = lib.mkOption {
+      type = lib.types.str;
+      default = ",highrr,auto,1";
     };
   };
 }
