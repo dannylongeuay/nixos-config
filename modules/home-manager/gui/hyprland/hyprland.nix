@@ -51,7 +51,7 @@
           background_color = "$base";
         };
         input = {
-          sensitivity = -0.5;
+          sensitivity = config.hyprland_input_sensitivity;
           accel_profile = "flat";
           kb_options = "caps:escape";
           follow_mouse = 2;
@@ -149,6 +149,10 @@
     hyprland_monitor = lib.mkOption {
       type = lib.types.str;
       default = ",highrr,auto,1";
+    };
+    hyprland_input_sensitivity = lib.mkOption {
+      type = lib.types.float;
+      default = -0.5;
     };
   };
 }

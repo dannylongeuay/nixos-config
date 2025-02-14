@@ -8,7 +8,8 @@
     };
   };
 
-  hyprland_monitor = ",preferred,auto,1.25";
+  # hyprland_monitor = ",preferred,auto,1.25";
+  hyprland_input_sensitivity = -0.6;
   hyprland_startup_apps =
     [
       "[workspace 1 silent] firefox"
