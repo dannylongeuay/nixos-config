@@ -120,6 +120,8 @@
             ", XF86AudioPrev, exec, playerctl -p spotify previous"
             ", XF86AudioPlay, exec, playerctl -p spotify play-pause"
             ", XF86AudioNext, exec, playerctl -p spotify next"
+            ", XF86MonBrightnessDown, exec, brightnessctl s 10%-"
+            ", XF86MonBrightnessUp, exec, brightnessctl s +10%"
           ];
         bindel =
           [
