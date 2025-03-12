@@ -14,7 +14,6 @@ in
           modules-left = [ "hyprland/window" ];
           modules-center = [ "hyprland/workspaces" ];
           modules-right = [
-            "custom/mouse-charge"
             "pulseaudio"
             "temperature"
             "disk"
@@ -71,10 +70,6 @@ SSID: {essid:10} | STRENGTH: {signalStrength}% | FREQ: {frequency}'';
             format = "${coloredIcon "" "peach"} {percentage_used:2}%";
             interval = 60;
           };
-          # load = {
-          #   format = "${coloredIcon "" "yellow"} {load1:4}%";
-          #   interval = 5;
-          # };
           cpu = {
             format = "${coloredIcon "" "yellow"} {usage:2}%";
             interval = 5;
@@ -88,20 +83,14 @@ SSID: {essid:10} | STRENGTH: {signalStrength}% | FREQ: {frequency}'';
             format = "${coloredIcon "{icon}" "green"} {capacity:3}%";
             format-icons = [ "" "" "" "" "" ];
           };
-          "custom/mouse-charge" = {
-            format = "${coloredIcon "" "overlay2"} {:3}";
-            exec = ''solaar show "G Pro Wireless" 2>/dev/null | rg Battery | awk '{print $2}' | head -n 1'';
-            interval = 60;
-            tooltip = false;
-          };
           clock = {
             format = "${coloredIcon "" "lavender"} {:%R (%Z)}";
             format-alt = "${coloredIcon "" "lavender"} {:%A %F %R (%Z)}";
             tooltip-format = "{tz_list}";
             timezones =
               [
-                "America/Los_Angeles"
                 "America/Chicago"
+                "America/Los_Angeles"
                 "America/New_York"
                 "Etc/UTC"
                 "Asia/Tokyo"
@@ -137,7 +126,6 @@ SSID: {essid:10} | STRENGTH: {signalStrength}% | FREQ: {frequency}'';
         #cpu,
         #memory,
         #battery,
-        #custom-mouse-charge,
         #network,
         #clock
         {
