@@ -58,6 +58,10 @@
           repeat_rate = 32;
           repeat_delay = 200;
         };
+        device = {
+          name = "dll0945:00-04f3:311c-touchpad";
+          sensitivity = 0.5;
+        };
         cursor = {
           no_hardware_cursors = true;
         };
