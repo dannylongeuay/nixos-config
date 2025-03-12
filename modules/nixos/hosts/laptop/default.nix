@@ -7,12 +7,9 @@
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
-  hardware.logitech.wireless = {
-    enable = true;
-    enableGraphical = true;
-  };
-
   nix.gc.dates = "20:00";
+
+  services.blueman.enable = true;
 
   imports =
     [
