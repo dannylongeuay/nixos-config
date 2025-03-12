@@ -52,7 +52,7 @@
         };
         input = {
           sensitivity = config.hyprland_input_sensitivity;
-          accel_profile = "flat";
+          accel_profile = "adaptive";
           kb_options = "caps:escape";
           follow_mouse = 2;
           repeat_rate = 32;
@@ -60,7 +60,7 @@
         };
         device = {
           name = "dll0945:00-04f3:311c-touchpad";
-          sensitivity = 0.5;
+          sensitivity = 0.1;
         };
         cursor = {
           no_hardware_cursors = true;
@@ -158,7 +158,7 @@
     };
     hyprland_input_sensitivity = lib.mkOption {
       type = lib.types.float;
-      default = -0.5;
+      default = -0.1;
     };
   };
 }
