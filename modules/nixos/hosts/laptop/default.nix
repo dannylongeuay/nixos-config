@@ -9,8 +9,6 @@
 
   nix.gc.dates = "20:00";
 
-  services.blueman.enable = true;
-
   imports =
     [
       ./hardware-configuration.nix
