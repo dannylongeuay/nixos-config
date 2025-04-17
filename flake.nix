@@ -35,7 +35,7 @@
         modules =
           [
             ./modules/home-manager/user/cyberdan/desktop.nix
-            catppuccin.homeManagerModules.catppuccin
+            catppuccin.homeModules.catppuccin
           ];
       };
 
@@ -53,7 +53,7 @@
         modules =
           [
             ./modules/home-manager/user/cyberdan/laptop.nix
-            catppuccin.homeManagerModules.catppuccin
+            catppuccin.homeModules.catppuccin
           ];
       };
 
@@ -65,7 +65,7 @@
         modules =
           [
             ./modules/home-manager/user/daniel.longeuay/workLaptop.nix
-            catppuccin.homeManagerModules.catppuccin
+            catppuccin.homeModules.catppuccin
           ];
       };
     };

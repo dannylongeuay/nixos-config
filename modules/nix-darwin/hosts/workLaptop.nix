@@ -1,8 +1,6 @@
 { pkgs, ... }:
 
 {
-  services.nix-daemon.enable = true;
-
   system.stateVersion = 4;
 
   nixpkgs.hostPlatform = "aarch64-darwin";
