@@ -45,6 +45,10 @@
             "windowsMove,1,10,easeInOutBack,slide"
             "specialWorkspace,1,5,easeInOutCirc,slidevert"
           ];
+        ecosystem = {
+          no_update_news = true;
+          no_donation_nag = true;
+        };
         misc = {
           disable_hyprland_logo = true;
           disable_splash_rendering = true;
