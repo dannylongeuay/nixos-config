@@ -89,9 +89,9 @@ SSID: {essid:10} | STRENGTH: {signalStrength}% | FREQ: {frequency}'';
             tooltip-format = "{tz_list}";
             timezones =
               [
+                "America/New_York"
                 "America/Chicago"
                 "America/Los_Angeles"
-                "America/New_York"
                 "Etc/UTC"
                 "Asia/Tokyo"
               ];
