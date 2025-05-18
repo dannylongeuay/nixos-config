@@ -7,7 +7,7 @@ in
 {
   programs.zsh = {
     enable = true;
-    initExtraFirst = "exec ${pkgs.fish}/bin/fish";
+    initContent = lib.mkBefore "exec ${pkgs.fish}/bin/fish";
   };
   programs.fish = {
     enable = true;
