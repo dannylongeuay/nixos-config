@@ -32,6 +32,7 @@
   };
 
   system = {
+    primaryUser = "daniel.longeuay";
     defaults = {
       NSGlobalDomain = {
         _HIHideMenuBar = false;
