@@ -8,6 +8,6 @@
       firefox
       libnotify
       playerctl
-      spotify
+      spotify # ncspot - rust TUI alternative
     ];
 }

@@ -9,14 +9,16 @@
       doctl
       eza
       fd
-      httpie
+      httpie # xh - rust alternative
+      # hyperfine - benchmarking tool
       jq
-      just
+      just # mask - CLI task runner defined by markdown
       kubectl
       libqalculate
       fastfetch
       ncdu
       nix-your-shell
+      # presenterm - terminal slideshow presentation tool
       ripgrep
       unzip
       watchexec
@@ -27,6 +29,7 @@
       c = "clear";
       # break muscle memory
       clear = "# stop typing 'clear', use 'c' instead!";
+      find = "fd";
       grep = "rg";
       ll = "eza -la";
       ls = "eza";
