@@ -26,7 +26,7 @@
         };
         kconf = {
           body = ''
-            set -l region (printf "us-east-1\nus-west-2" | fzf)
+            set -l region (printf "eu-west-1\nus-east-1\nus-west-2" | fzf)
             set -l cluster (aws eks list-clusters --region $region --query 'clusters' | jq -r .[] | fzf)
             aws eks update-kubeconfig --name $cluster --region $region
           '';
