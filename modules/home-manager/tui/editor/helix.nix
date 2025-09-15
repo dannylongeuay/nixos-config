@@ -18,7 +18,7 @@
     extraPackages = with pkgs;
       [
         cuelsp
-        dockerfile-language-server-nodejs
+        dockerfile-language-server
         jq-lsp
         ltex-ls
         lua-language-server
