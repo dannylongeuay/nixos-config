@@ -20,6 +20,11 @@
       ncdu
       nix-your-shell
       nix-search-tv
+      (
+        pkgs.writeShellScriptBin
+          "ns"
+          (builtins.readFile "${pkgs.nix-search-tv.src}/nixpkgs.sh")
+      )
       # presenterm - terminal slideshow presentation tool
       ripgrep
       unzip
@@ -36,7 +41,6 @@
       k = "kubectl";
       ll = "eza -la";
       ls = "eza";
-      ns = "nix-search-tv print | fzf --preview 'nix-search-tv preview {}' --scheme history";
       we = "watchexec";
     };
   };
