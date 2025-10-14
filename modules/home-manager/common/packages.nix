@@ -7,6 +7,7 @@
       asciiquarium
       awscli2
       doctl
+      # dysk
       eza
       fd
       httpie # xh - rust alternative
@@ -18,6 +19,7 @@
       fastfetch
       ncdu
       nix-your-shell
+      nix-search-tv
       # presenterm - terminal slideshow presentation tool
       ripgrep
       unzip
@@ -31,9 +33,10 @@
       clear = "# stop typing 'clear', use 'c' instead!";
       find = "fd";
       grep = "rg";
+      k = "kubectl";
       ll = "eza -la";
       ls = "eza";
-      k = "kubectl";
+      ns = "nix-search-tv print | fzf --preview 'nix-search-tv preview {}' --scheme history";
       we = "watchexec";
     };
   };
