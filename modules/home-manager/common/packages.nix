@@ -6,6 +6,7 @@
       asciinema
       asciiquarium
       awscli2
+      cbonsai
       doctl
       # dysk
       eza
