@@ -1,6 +1,15 @@
 {
   catppuccin.delta.enable = false;
   programs = {
+    delta = {
+      enable = true;
+      enableGitIntegration = true;
+      options = {
+        navigate = true;
+        line-numbers = true;
+        side-by-side = true;
+      };
+    };
     fish = {
       shellAbbrs = {
         ga = "git add -A";
@@ -55,17 +64,11 @@
     };
     git = {
       enable = true;
-      userName = "dannylongeuay";
-      userEmail = "dannylongeuay@yahoo.com";
-      delta = {
-        enable = true;
-        options = {
-          navigate = true;
-          line-numbers = true;
-          side-by-side = true;
+      settings = {
+        user = {
+          name = "dannylongeuay";
+          email = "dannylongeuay@yahoo.com";
         };
-      };
-      extraConfig = {
         advice.statusHints = false;
         color.ui = true;
         init.defaultBranch = "main";
