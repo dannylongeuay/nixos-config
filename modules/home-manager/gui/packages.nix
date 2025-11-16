@@ -7,7 +7,5 @@
       digital
       firefox
       libnotify
-      playerctl
-      spotify # ncspot - rust TUI alternative
     ];
 }

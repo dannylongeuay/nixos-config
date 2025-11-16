@@ -14,7 +14,6 @@
     [
       "[workspace 1 silent] firefox"
       "[workspace 2 silent] kitty"
-      "[workspace 3 silent] spotify"
     ];
   imports =
     [

@@ -83,7 +83,6 @@
           [
             "$mod, T, exec, kitty"
             "$mod CTRL, B, exec, firefox"
-            "$mod, S, exec, spotify"
             "$mod, SPACE, exec, tofi-drun | xargs hyprctl dispatch exec --"
             "$mod CTRL, SPACE, exec, tofi-run | xargs hyprctl dispatch exec --"
             "$mod, Q, killactive,"
@@ -125,9 +124,9 @@
           [
             "$mod, BACKSPACE, exec, sleep 1 && hyprctl dispatch dpms on"
             ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-            ", XF86AudioPrev, exec, playerctl -p spotify previous"
-            ", XF86AudioPlay, exec, playerctl -p spotify play-pause"
-            ", XF86AudioNext, exec, playerctl -p spotify next"
+            # ", XF86AudioPrev, exec, playerctl -p spotify previous"
+            # ", XF86AudioPlay, exec, playerctl -p spotify play-pause"
+            # ", XF86AudioNext, exec, playerctl -p spotify next"
             ", XF86MonBrightnessDown, exec, brightnessctl s 10%-"
             ", XF86MonBrightnessUp, exec, brightnessctl s +10%"
           ];
