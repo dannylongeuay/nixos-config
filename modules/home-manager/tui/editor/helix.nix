@@ -18,12 +18,12 @@
     extraPackages = with pkgs;
       [
         cuelsp
+        deno
         dockerfile-language-server
         jq-lsp
         ltex-ls
         lua-language-server
         marksman
-        mdformat
         nil
         nixpkgs-fmt
         nodePackages.bash-language-server
@@ -49,10 +49,15 @@
           name = "markdown";
           language-servers = [ "marksman" "ltex-ls" ];
           formatter = {
-            command = "mdformat";
-            args = [ "-" ];
+            command = "deno";
+            args = [
+              "fmt"
+              "-"
+              "--ext"
+              "md"
+            ];
           };
-          auto-format = true;
+          auto-format = false;
         }
         {
           name = "python";
