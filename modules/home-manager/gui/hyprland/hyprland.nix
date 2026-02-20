@@ -75,9 +75,9 @@
           "GBM_BACKEND,nvidia-drm"
           "__GLX_VENDOR_LIBRARY_NAME,nvidia"
         ];
-        windowrulev2 = [
-          "tile, class:(firefox)"
-          "opacity 0.95 override 0.85 override, class:(kitty)"
+        windowrule = [
+          "tile on, match:class firefox"
+          "opacity 0.95 override 0.85 override, match:class kitty"
         ];
         bind =
           [

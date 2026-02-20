@@ -7,6 +7,7 @@ in
 {
   programs.zsh = {
     enable = true;
+    dotDir = config.home.homeDirectory;
     initContent = lib.mkBefore "exec ${pkgs.fish}/bin/fish";
   };
   programs.fish = {

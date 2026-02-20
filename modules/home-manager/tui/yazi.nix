@@ -1,6 +1,9 @@
 {
   programs = {
-    yazi.enable = true;
+    yazi = {
+      enable = true;
+      shellWrapperName = "yy";
+    };
     fish.shellAbbrs.ya = "yazi";
   };
 }

@@ -10,16 +10,12 @@ in
   services.hyprpaper = {
     enable = true;
     settings = {
-      ipc = "on";
       splash = false;
-      preload =
-        [
-          "${wallpaper}"
-        ];
-      wallpaper =
-        [
-          ",${wallpaper}"
-        ];
+      wallpaper = {
+        monitor = "";
+        path = "${wallpaper}";
+        fit_mode = "cover";
+      };
     };
   };
 }
