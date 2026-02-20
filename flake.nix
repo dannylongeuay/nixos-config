@@ -12,9 +12,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     catppuccin.url = "github:catppuccin/nix";
+    claude-code.url = "github:sadjow/claude-code-nix";
   };
 
-  outputs = { nixpkgs, home-manager, nix-darwin, catppuccin, ... }:
+  outputs = { nixpkgs, home-manager, nix-darwin, catppuccin, claude-code, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { system = system; config.allowUnfree = true; };
@@ -36,6 +37,10 @@
           [
             ./modules/home-manager/user/cyberdan/desktop.nix
             catppuccin.homeModules.catppuccin
+            {
+              nixpkgs.overlays = [ claude-code.overlays.default ];
+              home.packages = [ pkgs.claude-code ]; # or pkgs.claude-code-bun
+            }
           ];
       };
 
@@ -54,6 +59,10 @@
           [
             ./modules/home-manager/user/cyberdan/laptop.nix
             catppuccin.homeModules.catppuccin
+            {
+              nixpkgs.overlays = [ claude-code.overlays.default ];
+              home.packages = [ pkgs.claude-code ]; # or pkgs.claude-code-bun
+            }
           ];
       };
 
