@@ -14,6 +14,7 @@
       ./system.nix
       ./time.nix
       ./user.nix
+      ./virtualization.nix
       ./xserver.nix
     ];
 }
