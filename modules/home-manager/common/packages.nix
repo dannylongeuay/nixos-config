@@ -29,6 +29,7 @@
       )
       # presenterm - terminal slideshow presentation tool
       ripgrep
+      # television - fzf alternative
       unzip
       watchexec
     ];
