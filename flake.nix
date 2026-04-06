@@ -18,7 +18,7 @@
   outputs = { nixpkgs, home-manager, nix-darwin, catppuccin, claude-code, ... }:
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs { system = system; config.allowUnfree = true; };
+      pkgs = import nixpkgs { system = system; config.allowUnfree = true; overlays = [ claude-code.overlays.default ]; };
       lib = nixpkgs.lib;
     in
     {
@@ -38,8 +38,7 @@
             ./modules/home-manager/user/cyberdan/desktop.nix
             catppuccin.homeModules.catppuccin
             {
-              nixpkgs.overlays = [ claude-code.overlays.default ];
-              home.packages = [ pkgs.claude-code ]; # or pkgs.claude-code-bun
+              home.packages = [ pkgs.claude-code ];
             }
           ];
       };
@@ -60,8 +59,7 @@
             ./modules/home-manager/user/cyberdan/laptop.nix
             catppuccin.homeModules.catppuccin
             {
-              nixpkgs.overlays = [ claude-code.overlays.default ];
-              home.packages = [ pkgs.claude-code ]; # or pkgs.claude-code-bun
+              home.packages = [ pkgs.claude-code ];
             }
           ];
       };

@@ -26,7 +26,7 @@
         marksman
         nil
         nixpkgs-fmt
-        nodePackages.bash-language-server
+        bash-language-server
         taplo
         terraform
         terraform-ls
