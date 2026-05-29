@@ -204,7 +204,7 @@ in
             (bind "SUPER + Q" dsp.close)
 
             (bind "SUPER + CTRL + Q" dsp.exit)
-            (bind "SUPER + ESCAPE" (dsp.exec "sleep 1 && hyprctl dispatch dpms off && hyprlock"))
+            (bind "SUPER + ESCAPE" (dsp.exec "sleep 1 && hyprctl dispatch 'hl.dsp.dpms({ action = \\\"disable\\\" })' && hyprlock"))
             (bind "PRINT" (dsp.exec "hyprshot -m region"))
 
             (bind "SUPER + SHIFT + W" (dsp.exec "pkill waybar; waybar"))
@@ -229,7 +229,7 @@ in
 
             (bind "SUPER + RETURN" (dsp.toggleSpecial "magic"))
 
-            (bindOpts "SUPER + BACKSPACE" (dsp.exec "sleep 1 && hyprctl dispatch dpms on") { locked = true; })
+            (bindOpts "SUPER + BACKSPACE" (dsp.exec "sleep 1 && hyprctl dispatch 'hl.dsp.dpms({ action = \\\"enable\\\" })'") { locked = true; })
             (bindOpts "XF86AudioMute" (dsp.exec "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle") { locked = true; })
             (bindOpts "XF86MonBrightnessUp" (dsp.exec "brightnessctl s +10%") { locked = true; })
             (bindOpts "XF86MonBrightnessDown" (dsp.exec "brightnessctl s 10%-") { locked = true; })
