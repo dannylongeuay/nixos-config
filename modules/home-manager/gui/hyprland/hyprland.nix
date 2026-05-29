@@ -1,152 +1,245 @@
 { config, lib, ... }:
 
+# When {option}wayland.windowManager.hyprland.configType is "lua",
+# each attribute maps to an hl.(...) call. List values generate
+# one call per element.
+
+# Attribute values with an _args list generate multi-argument calls.
+# Attribute values with _var generate a Lua local variable instead of
+# an hl.(...) call. If no name is set, the attribute name is
+# used as the Lua variable name.
+# Values created with lib.generators.mkLuaInline are rendered as raw
+# Lua expressions.
+
+let
+  lua = lib.generators.mkLuaInline;
+
+  dsp = {
+    exec = cmd: lua ''hl.dsp.exec_cmd("${cmd}")'';
+    close = lua "hl.dsp.window.close()";
+    exit = lua "hl.dsp.exit()";
+    float = lua ''hl.dsp.window.float({ action = "toggle" })'';
+    fullscreen = lua "hl.dsp.window.fullscreen()";
+    focus = dir: lua ''hl.dsp.focus({ direction = "${dir}" })'';
+    swap = dir: lua ''hl.dsp.window.swap({ direction = "${dir}" })'';
+    toggleSpecial = name: lua ''hl.dsp.workspace.toggle_special("${name}")'';
+    moveToSpecial = name: lua ''hl.dsp.window.move({ workspace = "special:${name}" })'';
+    focusWorkspace = ws: lua ''hl.dsp.focus({ workspace = "${toString ws}" })'';
+    moveToWorkspace = ws: lua ''hl.dsp.window.move({ workspace = "${toString ws}" })'';
+    drag = lua "hl.dsp.window.drag()";
+    resize = lua "hl.dsp.window.resize()";
+    resizeOpts = opts: lua "hl.dsp.window.resize({ ${opts} })";
+  };
+
+  bind = keys: dispatcher: { _args = [ keys dispatcher ]; };
+  bindOpts = keys: dispatcher: opts: { _args = [ keys dispatcher opts ]; };
+
+  workspaceBinds = lib.concatMap
+    (i:
+      let key = toString (lib.mod i 10);
+      in [
+        (bind "SUPER + ${key}" (dsp.focusWorkspace i))
+        (bind "SUPER + SHIFT + ${key}" (dsp.moveToWorkspace i))
+      ]
+    )
+    (lib.range 1 10);
+in
 {
   config = {
     wayland.windowManager.hyprland = {
       enable = true;
+      configType = "lua";
 
       settings = {
-        "$mod" = "SUPER";
         monitor = config.hyprland_monitor;
-        exec-once =
-          [
-            "waybar"
-            "[workspace special silent] kitty"
-          ] ++ config.hyprland_startup_apps;
-        general = {
-          border_size = 3;
-          gaps_in = 5;
-          gaps_out = 10;
-          "col.active_border" = "$accent";
-          "col.inactive_border" = "$surface0";
-        };
-        dwindle =
-          {
-            force_split = 2;
+
+        config = {
+          general = {
+            border_size = 3;
+            gaps_in = 5;
+            gaps_out = 10;
+            col.active_border = lua "colors.accent";
+            col.inactive_border = lua "colors.surface0";
+
           };
-        decoration = {
-          rounding = 10;
-          active_opacity = 1.0;
-          inactive_opacity = 1.0;
-          blur = {
-            enabled = false;
+          decoration = {
+            rounding = 10;
+            active_opacity = 1.0;
+            inactive_opacity = 1.0;
+            blur = {
+              enabled = false;
+            };
+          };
+          ecosystem = {
+            no_update_news = true;
+            no_donation_nag = true;
+          };
+          misc = {
+            disable_hyprland_logo = true;
+            disable_splash_rendering = true;
+            background_color = lua "colors.base";
+          };
+          input = {
+            sensitivity = config.hyprland_input_sensitivity;
+            accel_profile = "adaptive";
+            kb_options = "caps:escape";
+            follow_mouse = 2;
+            repeat_rate = 32;
+            repeat_delay = 200;
+          };
+          dwindle =
+            {
+              force_split = 2;
+            };
+          cursor = {
+            no_hardware_cursors = true;
           };
         };
-        bezier =
-          [
-            "easeInOutCirc,0.85,0,0.15,1"
-            "easeInOutQuart,0.75,0,0.25,1"
-            "easeInOutBack,0.65,-0.5,0.35,1.5"
-            "easeOutExpo,0.15,1,0.3,1"
-          ];
-        animation =
-          [
-            "windowsIn,1,10,easeInOutQuart,popin"
-            "windowsMove,1,10,easeInOutBack,slide"
-            "specialWorkspace,1,5,easeInOutCirc,slidevert"
-          ];
-        ecosystem = {
-          no_update_news = true;
-          no_donation_nag = true;
-        };
-        misc = {
-          disable_hyprland_logo = true;
-          disable_splash_rendering = true;
-          background_color = "$base";
-        };
-        input = {
-          sensitivity = config.hyprland_input_sensitivity;
-          accel_profile = "adaptive";
-          kb_options = "caps:escape";
-          follow_mouse = 2;
-          repeat_rate = 32;
-          repeat_delay = 200;
-        };
+        animation = [
+          { leaf = "windowsIn"; enabled = true; speed = 10; bezier = "easeInOutQuart"; style = "popin"; }
+          { leaf = "windowsMove"; enabled = true; speed = 10; bezier = "easeInOutBack"; style = "slide"; }
+          { leaf = "specialWorkspace"; enabled = true; speed = 5; bezier = "easeInOutCirc"; style = "slidevert"; }
+        ];
         device = {
           name = "dll0945:00-04f3:311c-touchpad";
           sensitivity = 0.1;
         };
-        cursor = {
-          no_hardware_cursors = true;
+        on = {
+          _args = [
+            "hyprland.start"
+            (lua /* lua */ ''
+              function()
+                hl.exec_cmd("waybar")
+                hl.exec_cmd("firefox")
+              end
+            '')
+          ];
         };
-        env = [
-          "LIBVA_DRIVER_NAME,nvidia"
-          "XDG_SESSION_TYPE,wayland"
-          "GBM_BACKEND,nvidia-drm"
-          "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+        curve = [
+          {
+            _args = [
+              "easeInOutCirc"
+              {
+                type = "bezier";
+                points = lua "{ { 0.85, 0 }, { 0.15, 1 } }";
+              }
+            ];
+          }
+          {
+            _args = [
+              "easeInOutQuart"
+              {
+                type = "bezier";
+                points = lua "{ { 0.75, 0 }, { 0.25, 1 } }";
+
+              }
+            ];
+          }
+          {
+            _args = [
+              "easeInOutBack"
+              {
+                type = "bezier";
+                points = lua "{ { 0.65, -0.5 }, { 0.35, 1.5 } }";
+              }
+            ];
+          }
+          {
+            _args = [
+              "easeOutExpo"
+              {
+                type = "bezier";
+                points = lua "{ { 0.15, 1 }, { 0.3, 1 } }";
+              }
+            ];
+          }
         ];
-        windowrule = [
-          "tile on, match:class firefox"
-          "opacity 0.95 override 0.85 override, match:class kitty"
+        env = [
+          {
+            _args = [
+              "LIBVA_DRIVER_NAME"
+              "nvidia"
+            ];
+          }
+          {
+            _args = [
+              "XDG_SESSION_TYPE"
+              "wayland"
+            ];
+          }
+          {
+            _args = [
+              "GBM_BACKEND"
+              "nvidia-drm"
+            ];
+          }
+          {
+            _args = [
+              "__GLX_VENDOR_LIBRARY_NAME"
+              "nvidia"
+            ];
+          }
+        ];
+        window_rule = [
+          {
+            match = {
+              class = "firefox";
+            };
+            tile = true;
+          }
+          {
+            match = {
+              class = "kitty";
+            };
+            opacity = "0.95 override 0.85 override";
+          }
         ];
         bind =
           [
-            "$mod, T, exec, kitty"
-            "$mod CTRL, B, exec, firefox"
-            "$mod, SPACE, exec, tofi-drun | xargs hyprctl dispatch exec --"
-            "$mod CTRL, SPACE, exec, tofi-run | xargs hyprctl dispatch exec --"
-            "$mod, Q, killactive,"
+            (bind "SUPER + T" (dsp.exec "kitty"))
+            (bind "SUPER + CTRL + B" (dsp.exec "firefox"))
+            (bind "SUPER + SPACE" (dsp.exec "tofi-drun | xargs hyprctl dispatch exec --"))
+            (bind "SUPER + CTRL + SPACE" (dsp.exec "tofi-run | xargs hyprctl dispatch exec --"))
 
-            "$mod CTRL, Q, exec, hyprctl dispatch exit"
-            "$mod, ESCAPE, exec, sleep 1 && hyprctl dispatch dpms off && hyprlock"
-            ", PRINT, exec, hyprshot -m region"
+            (bind "SUPER + Q" dsp.close)
 
-            "$mod SHIFT, W, exec, pkill waybar; waybar"
+            (bind "SUPER + CTRL + Q" dsp.exit)
+            (bind "SUPER + ESCAPE" (dsp.exec "sleep 1 && hyprctl dispatch dpms off && hyprlock"))
+            (bind "PRINT" (dsp.exec "hyprshot -m region"))
 
-            "$mod CTRL, F, togglefloating,"
-            "$mod SHIFT, F, fullscreen, 0"
+            (bind "SUPER + SHIFT + W" (dsp.exec "pkill waybar; waybar"))
 
-            "$mod, H, movefocus, l"
-            "$mod, J, movefocus, d"
-            "$mod, K, movefocus, u"
-            "$mod, L, movefocus, r"
+            (bind "SUPER + CTRL + F" dsp.float)
+            (bind "SUPER + SHIFT + F" dsp.fullscreen)
 
-            "$mod CTRL, H, swapwindow, l"
-            "$mod CTRL, J, swapwindow, d"
-            "$mod CTRL, K, swapwindow, u"
-            "$mod CTRL, L, swapwindow, r"
+            (bind "SUPER + H" (dsp.focus "left"))
+            (bind "SUPER + J" (dsp.focus "down"))
+            (bind "SUPER + K" (dsp.focus "up"))
+            (bind "SUPER + L" (dsp.focus "right"))
 
-            "$mod, 1, workspace, 1"
-            "$mod, 2, workspace, 2"
-            "$mod, 3, workspace, 3"
-            "$mod, 4, workspace, 4"
-            "$mod, 5, workspace, 5"
+            (bind "SUPER + CTRL + H" (dsp.swap "left"))
+            (bind "SUPER + CTRL + J" (dsp.swap "down"))
+            (bind "SUPER + CTRL + K" (dsp.swap "up"))
+            (bind "SUPER + CTRL + L" (dsp.swap "right"))
 
-            "$mod SHIFT, 1, movetoworkspace, 1"
-            "$mod SHIFT, 2, movetoworkspace, 2"
-            "$mod SHIFT, 3, movetoworkspace, 3"
-            "$mod SHIFT, 4, movetoworkspace, 4"
-            "$mod SHIFT, 5, movetoworkspace, 5"
+            (bind "SUPER + ALT + H" (dsp.resizeOpts "x = -100, y = 0, relative = true"))
+            (bind "SUPER + ALT + J" (dsp.resizeOpts "x = 0, y = 100, relative = true"))
+            (bind "SUPER + ALT + K" (dsp.resizeOpts "x = 0, y = -100, relative = true"))
+            (bind "SUPER + ALT + L" (dsp.resizeOpts "x = 100, y = 0, relative = true"))
 
-            "$mod, RETURN, togglespecialworkspace"
-          ];
-        bindl =
-          [
-            "$mod, BACKSPACE, exec, sleep 1 && hyprctl dispatch dpms on"
-            ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-            # ", XF86AudioPrev, exec, playerctl -p spotify previous"
-            # ", XF86AudioPlay, exec, playerctl -p spotify play-pause"
-            # ", XF86AudioNext, exec, playerctl -p spotify next"
-            ", XF86MonBrightnessDown, exec, brightnessctl s 10%-"
-            ", XF86MonBrightnessUp, exec, brightnessctl s +10%"
-          ];
-        bindel =
-          [
-            ", XF86AudioRaiseVolume, exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SINK@ 5%+"
-            ", XF86AudioLowerVolume, exec, wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SINK@ 5%-"
-          ];
-        binde =
-          [
-            "$mod ALT, h, resizeactive, -10 0"
-            "$mod ALT, j, resizeactive, 0 10"
-            "$mod ALT, k, resizeactive, 0 -10"
-            "$mod ALT, l, resizeactive, 10 0"
-          ];
-        bindm =
-          [
-            "$mod,mouse:272,movewindow"
-            "$mod,mouse:273,resizewindow"
-          ];
+            (bind "SUPER + RETURN" (dsp.toggleSpecial "magic"))
+
+            (bindOpts "SUPER + BACKSPACE" (dsp.exec "sleep 1 && hyprctl dispatch dpms on") { locked = true; })
+            (bindOpts "XF86AudioMute" (dsp.exec "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle") { locked = true; })
+            (bindOpts "XF86MonBrightnessUp" (dsp.exec "brightnessctl s +10%") { locked = true; })
+            (bindOpts "XF86MonBrightnessDown" (dsp.exec "brightnessctl s 10%-") { locked = true; })
+
+            (bindOpts "XF86AudioRaiseVolume" (dsp.exec "wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SINK@ 5%+") { locked = true; repeating = true; })
+            (bindOpts "XF86AudioLowerVolume" (dsp.exec "wpctl set-volume --limit 1.0 @DEFAULT_AUDIO_SINK@ 5%-") { locked = true; repeating = true; })
+
+            (bindOpts "SUPER + mouse:272" dsp.drag { mouse = true; })
+            (bindOpts "SUPER + mouse:273" dsp.resize { mouse = true; })
+          ] ++ workspaceBinds;
       };
     };
   };
@@ -156,8 +249,13 @@
       default = [ ];
     };
     hyprland_monitor = lib.mkOption {
-      type = lib.types.str;
-      default = ",highrr,auto,1";
+      type = lib.types.listOf (lib.types.attrsOf lib.types.str);
+      default = [{
+        output = "";
+        mode = "highrr";
+        position = "auto";
+        scale = "1";
+      }];
     };
     hyprland_input_sensitivity = lib.mkOption {
       type = lib.types.float;
