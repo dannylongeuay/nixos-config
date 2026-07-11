@@ -12,6 +12,7 @@
   home.username = "cyberdan";
   home.homeDirectory = "/home/cyberdan";
   home.stateVersion = "23.11";
+  home.pointerCursor.enable = true;
 
   imports = [
     ../../common
